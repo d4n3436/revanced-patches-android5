@@ -16,4 +16,6 @@ Currently only a minimal set of patches work (`microg-support`, `protobuf-spoof`
 java -jar revanced-cli.jar -a YouTube_16.40.36.apk -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.160.4.jar -m revanced-integrations-0.96.3.apk -i microg-support -i protobuf-spoof -i client-spoof -i hide-video-ads --exclusive
 ```
 
+- Enable protobuf spoof in settings (Settings -> ReVanced settings -> Extended settings -> Enable protobuf spoof)
+
 Refer to the original [repository](https://github.com/kitadai31/revanced-patches-android6-7) for more info.
