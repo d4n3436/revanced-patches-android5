@@ -5,6 +5,7 @@ Currently only a minimal set of patches work (`microg-support`, `protobuf-spoof`
 ## How to patch:
 
 - Prerequisites:
+  - [Vanced MicroG](https://github.com/TeamVanced/VancedMicroG/releases/tag/v0.2.22.212658-212658001) installed on your device
   - [Patches from the Release section](https://github.com/d4n3436/revanced-patches-android5/releases)
   - [YouTube APK](https://www.apkmirror.com/apk/google-inc/youtube/youtube-16-40-36-release/youtube-16-40-36-android-apk-download/)
   - revanced-integrations from [here](https://github.com/kitadai31/revanced-integrations/releases)
