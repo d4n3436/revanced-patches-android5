@@ -11,11 +11,9 @@ Currently only a minimal set of patches work (`microg-support`, `protobuf-spoof`
   - [revanced-integrations for Android 5](https://github.com/d4n3436/revanced-integrations/releases)
   - [revanced-cli](https://github.com/revanced/revanced-cli/releases)
 
-- Patch with the following command:
+- Patch with the following command (file names changed for brevity):
 ```
 java -jar revanced-cli.jar -a YouTube_16.40.36.apk -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.160.5.jar -m revanced-integrations-0.96.4.apk -i microg-support -i protobuf-spoof -i client-spoof -i hide-video-ads --exclusive
 ```
-
-- Enable protobuf spoof in settings (Settings -> ReVanced settings -> Extended settings -> Enable protobuf spoof)
 
 Refer to the original [repository](https://github.com/kitadai31/revanced-patches-android6-7) for more info.
