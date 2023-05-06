@@ -2,13 +2,14 @@
 
 Currently only a minimal set of patches work (`microg-support`, `protobuf-spoof`, `client-spoof`, `hide-video-ads` and others).
 
-## How to patch:
+## How to patch
 
 - Prerequisites:
   - [Vanced MicroG](https://github.com/TeamVanced/VancedMicroG/releases/tag/v0.2.22.212658-212658001) installed on your device
   - [Patches from the Release section](https://github.com/d4n3436/revanced-patches-android5/releases)
   - [YouTube APK](https://www.apkmirror.com/apk/google-inc/youtube/youtube-16-40-36-release/youtube-16-40-36-android-apk-download/)
   - [revanced-integrations for Android 5](https://github.com/d4n3436/revanced-integrations/releases)
+  - Zulu OpenJDK 17
   - [revanced-cli](https://github.com/revanced/revanced-cli/releases)
 
 - Patch with the following command (file names changed for brevity):
