@@ -10,7 +10,7 @@ Currently only a minimal set of patches work (`microg-support`, `protobuf-spoof`
   - [YouTube APK](https://www.apkmirror.com/apk/google-inc/youtube/youtube-16-40-36-release/youtube-16-40-36-android-apk-download/)
   - [revanced-integrations for Android 5](https://github.com/d4n3436/revanced-integrations/releases)
   - Zulu OpenJDK 17
-  - [revanced-cli](https://github.com/revanced/revanced-cli/releases)
+  - [revanced-cli v2.21.1](https://github.com/revanced/revanced-cli/releases/tag/v2.21.1)
 
 - Patch with the following command (file names changed for brevity):
 ```
