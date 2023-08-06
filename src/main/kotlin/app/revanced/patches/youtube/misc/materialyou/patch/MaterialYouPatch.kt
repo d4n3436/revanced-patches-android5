@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.misc.materialyou.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -27,7 +26,6 @@ import java.nio.file.StandardCopyOption
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class MaterialYouPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 

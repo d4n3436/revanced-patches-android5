@@ -7,8 +7,8 @@ import org.jf.dexlib2.Opcode
 
 object PrimaryInjectFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf(),
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
     opcodes = listOf(
         Opcode.IF_NEZ,
         Opcode.CONST_STRING,

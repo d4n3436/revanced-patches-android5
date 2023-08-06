@@ -5,6 +5,6 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 object LayoutConstructorFingerprint : MethodFingerprint(
     strings = listOf("1.0x"),
     customFingerprint = {
-        it.definingClass.endsWith("YouTubeControlsOverlay;")
+            methodDef, _ -> methodDef.definingClass.endsWith("YouTubeControlsOverlay;")
     }
 )

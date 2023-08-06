@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.misc.microg.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -25,7 +24,6 @@ import app.revanced.shared.util.microg.MicroGBytecodeHelper
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class MicroGBytecodePatch : BytecodePatch(
     listOf(
         CastContextFetchFingerprint,

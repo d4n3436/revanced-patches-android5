@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.misc.clientspoof.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -16,7 +15,6 @@ import org.jf.dexlib2.iface.instruction.FiveRegisterInstruction
 
 @Name("client-spoof-bytecode-patch")
 @YouTubeCompatibility
-@Version("0.0.1")
 class ClientSpoofBytecodePatch : BytecodePatch(
     listOf(UserAgentHeaderBuilderFingerprint)
 ) {
@@ -26,7 +24,7 @@ class ClientSpoofBytecodePatch : BytecodePatch(
             val insertIndex = it.scanResult.patternScanResult!!.endIndex
 
             with (it.mutableMethod) {
-                val packageNameRegister = (instruction(insertIndex) as FiveRegisterInstruction).registerD
+                val packageNameRegister = (getInstruction(insertIndex) as FiveRegisterInstruction).registerD
                 addInstruction(insertIndex, "const-string v$packageNameRegister, \"$PACKAGE_NAME\"")
             }
         } ?: return UserAgentHeaderBuilderFingerprint.toErrorResult()

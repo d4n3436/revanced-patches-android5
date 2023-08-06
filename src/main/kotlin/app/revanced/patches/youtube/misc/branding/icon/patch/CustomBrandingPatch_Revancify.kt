@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.misc.branding.icon.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -19,7 +18,6 @@ import app.revanced.shared.util.resources.ResourceHelper
 @Description("Changes the YouTube launcher icon (Revancify).")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class CustomBrandingPatch_Revancify : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 

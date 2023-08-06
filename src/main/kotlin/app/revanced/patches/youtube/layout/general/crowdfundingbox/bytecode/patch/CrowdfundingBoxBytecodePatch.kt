@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.layout.general.crowdfundingbox.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -18,7 +17,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 @Name("hide-crowdfunding-box-bytecode-patch")
 @DependsOn([ResourceMappingPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class CrowdfundingBoxBytecodePatch : BytecodePatch() {
 
     // list of resource names to get the id of

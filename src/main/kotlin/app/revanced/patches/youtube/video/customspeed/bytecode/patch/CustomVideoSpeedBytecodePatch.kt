@@ -1,11 +1,10 @@
 package app.revanced.patches.youtube.video.customspeed.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.replaceInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
@@ -27,7 +26,6 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Name("custom-speed-bytecode-patch")
 @DependsOn([PatchOptions::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class CustomVideoSpeedBytecodePatch : BytecodePatch(
     listOf(
         SpeedArrayGeneratorFingerprint,
@@ -51,14 +49,14 @@ class CustomVideoSpeedBytecodePatch : BytecodePatch(
                 val sizeCallResultRegister =
                     (implementation!!.instructions.elementAt(sizeCallIndex + 1) as OneRegisterInstruction).registerA
 
-                addInstructions(
+                addInstructionsWithLabels(
                     sizeCallIndex + 2,
                     """
                         invoke-static {}, $INTEGRATIONS_VIDEO_SPEED_CLASS_DESCRIPTOR->isCustomVideoSpeedEnabled()Z
                         move-result v9
                         if-eqz v9, :defaultspeed
                         const/4 v$sizeCallResultRegister, 0x0
-                    """, listOf(ExternalLabel("defaultspeed", instruction(sizeCallIndex + 2)))
+                    """, ExternalLabel("defaultspeed", getInstruction(sizeCallIndex + 2))
                 )
 
                 val (arrayLengthConstIndex, arrayLengthConst) = implementation!!.instructions.withIndex()
@@ -68,13 +66,13 @@ class CustomVideoSpeedBytecodePatch : BytecodePatch(
 
                 val videoSpeedsArrayType = "$INTEGRATIONS_VIDEO_SPEED_ENTRIES_CLASS_DESCRIPTOR->videoSpeed:[F"
 
-                addInstructions(
+                addInstructionsWithLabels(
                     arrayLengthConstIndex + 1,
                     """
                         if-eqz v9, :defaultspeed
                         sget-object v$arrayLengthConstDestination, $videoSpeedsArrayType
                         array-length v$arrayLengthConstDestination, v$arrayLengthConstDestination
-                    """, listOf(ExternalLabel("defaultspeed", instruction(arrayLengthConstIndex + 1)))
+                    """, ExternalLabel("defaultspeed", getInstruction(arrayLengthConstIndex + 1))
                 )
 
                 val (originalArrayFetchIndex, originalArrayFetch) = implementation!!.instructions.withIndex()
@@ -86,12 +84,12 @@ class CustomVideoSpeedBytecodePatch : BytecodePatch(
 
                 val originalArrayFetchDestination = (originalArrayFetch as OneRegisterInstruction).registerA
 
-                addInstructions(
+                addInstructionsWithLabels(
                     originalArrayFetchIndex + 1,
                     """
                         if-eqz v9, :defaultspeed
                         sget-object v$originalArrayFetchDestination, $videoSpeedsArrayType
-                    """, listOf(ExternalLabel("defaultspeed", instruction(originalArrayFetchIndex + 1)))
+                    """, ExternalLabel("defaultspeed", getInstruction(originalArrayFetchIndex + 1))
                 )
             }
         } ?: return SpeedArrayGeneratorFingerprint.toErrorResult()

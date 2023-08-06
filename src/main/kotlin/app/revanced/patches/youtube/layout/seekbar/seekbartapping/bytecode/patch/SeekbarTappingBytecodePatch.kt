@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.layout.seekbar.seekbartapping.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -24,7 +23,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 @Name("enable-seekbar-tapping-bytecode-patch")
 @DependsOn([SharedResourcdIdPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class SeekbarTappingBytecodePatch : BytecodePatch(
     listOf(
         SeekbarTappingParentFingerprint, SeekbarTappingFingerprint
@@ -64,14 +62,14 @@ class SeekbarTappingBytecodePatch : BytecodePatch(
                 val pMethod = tapSeekMethods["P"]!!
                 val oMethod = tapSeekMethods["O"]!!
 
-                addInstructions(
+                addInstructionsWithLabels(
                     insertIndex, """
                         invoke-static {}, $SEEKBAR_LAYOUT->enableSeekbarTapping()Z
                         move-result v0
                         if-eqz v0, :off
                         invoke-virtual { v$register, v2 }, ${oMethod.definingClass}->${oMethod.name}(I)V
                         invoke-virtual { v$register, v2 }, ${pMethod.definingClass}->${pMethod.name}(I)V
-                        """, listOf(ExternalLabel("off", instruction(insertIndex)))
+                        """, ExternalLabel("off", getInstruction(insertIndex))
                 )
             }
         } ?: return SeekbarTappingFingerprint.toErrorResult()

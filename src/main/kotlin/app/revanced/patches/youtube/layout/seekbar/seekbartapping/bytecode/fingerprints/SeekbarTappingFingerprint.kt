@@ -8,7 +8,7 @@ import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 
 object SeekbarTappingFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.NEW_INSTANCE,
@@ -17,7 +17,7 @@ object SeekbarTappingFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.name == "onTouchEvent"
         && methodDef.implementation!!.instructions.any {
             ((it as? NarrowLiteralInstruction)?.narrowLiteral == 2147483647)

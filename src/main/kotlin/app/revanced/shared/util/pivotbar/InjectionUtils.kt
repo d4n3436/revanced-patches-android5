@@ -1,7 +1,7 @@
 package app.revanced.shared.util.pivotbar
 
-import app.revanced.patcher.extensions.addInstruction
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 import org.jf.dexlib2.Opcode.MOVE_RESULT_OBJECT
@@ -20,7 +20,7 @@ internal object InjectionUtils {
 
         // Register to pass to the hook
         val registerIndex = insertIndex - 1 // MOVE_RESULT_OBJECT is always the previous instruction
-        val register = (injectTarget.instruction(registerIndex) as OneRegisterInstruction).registerA
+        val register = (injectTarget.getInstruction(registerIndex) as OneRegisterInstruction).registerA
 
         injectTarget.addInstruction(
             insertIndex,

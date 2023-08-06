@@ -1,7 +1,6 @@
 package app.revanced.shared.patches.timebar
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
@@ -19,7 +18,6 @@ import app.revanced.shared.fingerprints.TimebarFingerprint
 @Name("hook-timebar-patch")
 @DependsOn([SharedResourcdIdPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class HookTimebarPatch : BytecodePatch(
     listOf(
         EmptyColorFingerprint,

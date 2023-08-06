@@ -1,9 +1,8 @@
 package app.revanced.patches.youtube.misc.externalbrowser.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -15,7 +14,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction21c
 
 @Name("enable-external-browser-bytecode-patch")
 @YouTubeCompatibility
-@Version("0.0.1")
 class ExternalBrowserBytecodePatch : BytecodePatch(
     listOf(
         ExternalBrowserPrimaryFingerprint,

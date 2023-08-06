@@ -1,10 +1,10 @@
 package app.revanced.patches.youtube.button.autorepeat.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -19,7 +19,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("always-autorepeat")
 @YouTubeCompatibility
-@Version("0.0.1")
 class AutoRepeatPatch : BytecodePatch(
     listOf(
         AutoRepeatParentFingerprint,
@@ -31,13 +30,13 @@ class AutoRepeatPatch : BytecodePatch(
             AutoRepeatFingerprint.also {
                 it.resolve(context, classDef)
             }.result?.mutableMethod?.let {
-                it.addInstructions(
+                it.addInstructionsWithLabels(
                     0, """
                     invoke-static {}, $VIDEO_PATH/VideoInformation;->videoEnded()Z
                     move-result v0
                     if-eqz v0, :noautorepeat
                     return-void
-                """, listOf(ExternalLabel("noautorepeat", it.instruction(0)))
+                """, ExternalLabel("noautorepeat", it.getInstruction(0))
                 )
             } ?: return AutoRepeatFingerprint.toErrorResult()
         } ?: return AutoRepeatParentFingerprint.toErrorResult()

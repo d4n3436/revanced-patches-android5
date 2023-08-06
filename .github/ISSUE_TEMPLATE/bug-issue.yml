@@ -1,6 +1,6 @@
-name: 🐞 Bug report
+name: 🐞 Bug Report
 description: Report a very clearly broken issue.
-title: 'bug: <title>'
+title: 'bug: '
 labels: [bug]
 body:
   - type: markdown
@@ -8,7 +8,7 @@ body:
       value: |
         # ReVanced bug report
 
-        Important to note that your issue may have already been reported before. Please check for existing issues [here](https://github.com/revanced/revanced-patches/labels/bug).
+        Important to note that your issue may have already been reported before. Please check for existing issues [here](https://github.com/kitadai31/revanced-patches-android6-7/labels/bug).
 
   - type: dropdown
     attributes:
@@ -30,7 +30,7 @@ body:
     attributes:
       label: Steps to reproduce
       description: Add the steps to reproduce this bug including your environment.
-      placeholder: Step 1. Download some files. Step 2. ...
+      placeholder: Step 1. include `hide-video-ads` and patch. Step 2. ...
     validations:
       required: true
   - type: textarea
@@ -39,7 +39,7 @@ body:
       description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks. Capture crash logs by running `logcat | grep AndroidRuntime`.
       render: shell
     validations:
-      required: true
+      required: false
   - type: textarea
     attributes:
       label: Screenshots or videos
@@ -59,6 +59,13 @@ body:
       description: Add additional context here.
     validations:
       required: false
+  - type: textarea
+    attributes:
+      label: Device Environment
+      description: Add your device environment.
+      placeholder: Android 7.1, MIUI 14 ...
+    validations:
+      required: true
   - type: checkboxes
     id: acknowledgements
     attributes:

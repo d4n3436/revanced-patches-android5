@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.misc.litho.filter.patch
 
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -26,7 +25,6 @@ import org.jf.dexlib2.Opcode
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class LithoFilterPatch : BytecodePatch(
     listOf(
         LithoFingerprint
@@ -57,7 +55,7 @@ class LithoFilterPatch : BytecodePatch(
                 (method.implementation!!.instructions.elementAt(lithoIndex + 2) as ReferenceInstruction).reference as FieldReference
             }
 
-        lithoMethod.addInstructions(
+        lithoMethod.addInstructionsWithLabels(
             0, """
                 move-object/from16 v1, v$lithoRegister1
                 invoke-virtual {v1}, Ljava/lang/Object;->toString()Ljava/lang/String;
@@ -72,7 +70,7 @@ class LithoFilterPatch : BytecodePatch(
                 move-result-object v0
                 iget-object v0, v0, ${SecondReference.definingClass}->${SecondReference.name}:${SecondReference.type}
                 return-object v0
-            """, listOf(ExternalLabel("do_not_block", lithoMethod.instruction(0)))
+            """, ExternalLabel("do_not_block", lithoMethod.getInstruction(0))
         )
 
         return PatchResultSuccess()

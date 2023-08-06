@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object CreateMixPlaylistFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("L", "L", "L", "L", "L", "L", "L"),
     opcodes = listOf(
         Opcode.INVOKE_DIRECT,

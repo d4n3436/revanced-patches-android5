@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object ScrollTopParentFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.CONSTRUCTOR,
     parameters = listOf("L", "L", "L", "L"),
     opcodes = listOf(
         Opcode.INVOKE_DIRECT,
@@ -19,7 +19,7 @@ object ScrollTopParentFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.NEW_INSTANCE
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.name == "<init>"
     }
 )

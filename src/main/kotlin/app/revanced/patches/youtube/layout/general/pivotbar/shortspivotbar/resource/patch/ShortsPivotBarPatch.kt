@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.layout.general.pivotbar.shortspivotbar.reso
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -15,8 +14,8 @@ import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.resources.ResourceHelper
 
 @Patch
-@Name("hide-shorts-pivot-bar")
-@Description("Hides the bottom navigation tabs when playing shorts.")
+@Name("hide-shorts-navbar")
+@Description("Hide navigation bar when playing shorts.")
 @DependsOn(
     [
         SettingsPatch::class,
@@ -24,7 +23,6 @@ import app.revanced.shared.util.resources.ResourceHelper
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class ShortsPivotBarPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 
@@ -43,7 +41,7 @@ class ShortsPivotBarPatch : ResourcePatch {
 
         ResourceHelper.patchSuccess(
             context,
-            "hide-shorts-pivot-bar"
+            "hide-shorts-navbar"
         )
 
         return PatchResultSuccess()

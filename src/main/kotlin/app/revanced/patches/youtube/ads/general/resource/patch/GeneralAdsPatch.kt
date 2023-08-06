@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.ads.general.resource.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
@@ -31,7 +30,6 @@ import org.w3c.dom.Element
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class GeneralAdsPatch : ResourcePatch {
     private val resourceFileNames = arrayOf(
         "promoted_",

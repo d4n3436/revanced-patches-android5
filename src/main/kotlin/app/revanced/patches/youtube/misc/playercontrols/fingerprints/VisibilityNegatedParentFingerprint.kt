@@ -9,8 +9,8 @@ import org.jf.dexlib2.Opcode
 
 object VisibilityNegatedParentFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { methodDef ->
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any {
             it.opcode.ordinal == Opcode.CONST.ordinal &&
                     (it as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.educationTextViewResourceId

@@ -1,9 +1,8 @@
 package app.revanced.patches.youtube.misc.settings.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -16,6 +15,7 @@ import app.revanced.shared.extensions.findMutableMethodOf
 import app.revanced.shared.extensions.injectTheme
 import app.revanced.shared.extensions.toErrorResult
 import app.revanced.shared.patches.mapping.ResourceMappingPatch
+import app.revanced.shared.util.bytecode.BytecodeHelper
 import app.revanced.shared.util.integrations.Constants.INTEGRATIONS_PATH
 import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.formats.Instruction31i
@@ -29,7 +29,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31i
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class SettingsBytecodePatch : BytecodePatch(
     listOf(ThemeSetterSystemFingerprint)
 ) {
@@ -96,6 +95,8 @@ class SettingsBytecodePatch : BytecodePatch(
                 )
             }
         } ?: return ThemeSetterSystemFingerprint.toErrorResult()
+
+        BytecodeHelper.injectInit(context, "FirstRun", "initializationRVX")
 
         return PatchResultSuccess()
     }

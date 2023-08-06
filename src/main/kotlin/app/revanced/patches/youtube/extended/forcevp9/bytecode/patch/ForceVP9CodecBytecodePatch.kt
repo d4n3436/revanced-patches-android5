@@ -1,11 +1,10 @@
 package app.revanced.patches.youtube.extended.forcevp9.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
@@ -24,7 +23,6 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 
 @Name("force-vp9-codec-bytecode-patch")
 @YouTubeCompatibility
-@Version("0.0.1")
 class ForceVP9CodecBytecodePatch : BytecodePatch(
     listOf(
         LayoutSwitchFingerprint,
@@ -69,8 +67,8 @@ class ForceVP9CodecBytecodePatch : BytecodePatch(
                 val startIndex = scanResult.patternScanResult!!.startIndex
                 val endIndex = scanResult.patternScanResult!!.endIndex
 
-                val startRegister = (instruction(startIndex) as OneRegisterInstruction).registerA
-                val endRegister = (instruction(endIndex) as OneRegisterInstruction).registerA
+                val startRegister = (getInstruction(startIndex) as OneRegisterInstruction).registerA
+                val endRegister = (getInstruction(endIndex) as OneRegisterInstruction).registerA
 
                 hookOverride(endIndex + 1, endRegister)
                 removeInstruction(endIndex)

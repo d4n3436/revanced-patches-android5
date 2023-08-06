@@ -6,6 +6,6 @@ import org.jf.dexlib2.AccessFlags
 
 object LikeFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PROTECTED or AccessFlags.CONSTRUCTOR,
+    accessFlags = AccessFlags.PROTECTED or AccessFlags.CONSTRUCTOR,
     strings = listOf("like/like")
 )

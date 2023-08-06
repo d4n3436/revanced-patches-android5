@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.swipe.swipecontrols.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -20,7 +19,6 @@ import org.jf.dexlib2.immutable.ImmutableMethod
 
 @Name("swipe-controls-bytecode-patch")
 @YouTubeCompatibility
-@Version("0.0.3")
 @DependsOn(
     [
         PlayerTypeHookPatch::class

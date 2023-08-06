@@ -8,7 +8,7 @@ import org.jf.dexlib2.Opcode
 object EmptyColorFingerprint : MethodFingerprint(
     returnType = "V",
     opcodes = listOf(Opcode.DIV_LONG_2ADDR),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any { instruction ->
             instruction.opcode.ordinal == Opcode.CONST.ordinal &&
             (instruction as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.emptycolorLabelId

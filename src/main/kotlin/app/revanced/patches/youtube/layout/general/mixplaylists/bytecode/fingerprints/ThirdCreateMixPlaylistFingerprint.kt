@@ -14,7 +14,7 @@ object ThirdCreateMixPlaylistFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.IPUT_OBJECT
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any {
             it.opcode.ordinal == Opcode.CONST.ordinal &&
             (it as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.bottompaneloverlaytextLabelId

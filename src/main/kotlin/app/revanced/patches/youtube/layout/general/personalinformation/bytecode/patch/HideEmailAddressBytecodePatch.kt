@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.layout.general.personalinformation.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -16,7 +15,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("hide-email-address-bytecode-patch")
 @YouTubeCompatibility
-@Version("0.0.1")
 class HideEmailAddressBytecodePatch : BytecodePatch(
     listOf(
         AccountSwitcherAccessibilityLabelFingerprint
@@ -27,7 +25,7 @@ class HideEmailAddressBytecodePatch : BytecodePatch(
         AccountSwitcherAccessibilityLabelFingerprint.result?.let {
             with (it.mutableMethod) {
                 val insertIndex = it.scanResult.patternScanResult!!.endIndex
-                val register = (instruction(insertIndex - 2) as OneRegisterInstruction).registerA
+                val register = (getInstruction(insertIndex - 2) as OneRegisterInstruction).registerA
 
                 addInstructions(
                     insertIndex, """

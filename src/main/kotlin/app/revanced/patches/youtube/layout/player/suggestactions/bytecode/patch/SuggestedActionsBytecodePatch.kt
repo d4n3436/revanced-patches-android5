@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.layout.player.suggestactions.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -18,7 +17,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 @DependsOn([ResourceMappingPatch::class])
 @Name("hide-suggested-actions-bytecode-patch")
 @YouTubeCompatibility
-@Version("0.0.1")
 class SuggestedActionsBytecodePatch : BytecodePatch() {
 
     // list of resource names to get the id of

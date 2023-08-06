@@ -9,8 +9,8 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 object SeekbarTappingParentFingerprint : MethodFingerprint(
     returnType = "L",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { methodDef ->
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any { instruction ->
             instruction.opcode.ordinal == Opcode.CONST.ordinal &&
                     (instruction as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.accessibilityProgressTimeLabelId

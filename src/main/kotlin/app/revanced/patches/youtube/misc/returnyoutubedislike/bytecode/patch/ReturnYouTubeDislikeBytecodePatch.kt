@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.misc.returnyoutubedislike.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -26,7 +25,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class ReturnYouTubeDislikeBytecodePatch : BytecodePatch(
     listOf(
         DislikeFingerprint,

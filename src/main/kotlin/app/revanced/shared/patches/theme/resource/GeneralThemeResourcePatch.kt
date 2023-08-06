@@ -1,7 +1,6 @@
 package app.revanced.shared.patches.theme.resource
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -9,7 +8,6 @@ import app.revanced.patcher.patch.ResourcePatch
 import org.w3c.dom.Element
 
 @Name("general-theme-resource-patch")
-@Version("0.0.1")
 class GeneralThemeResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 

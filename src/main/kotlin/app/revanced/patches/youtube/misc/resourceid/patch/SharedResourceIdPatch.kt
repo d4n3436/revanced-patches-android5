@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.misc.resourceid.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -13,7 +12,6 @@ import app.revanced.shared.patches.mapping.ResourceMappingPatch
 @Name("shared-resource-id")
 @DependsOn([ResourceMappingPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class SharedResourcdIdPatch : ResourcePatch {
     internal companion object {
         var abclistmenuitemLabelId: Long = -1

@@ -1,9 +1,8 @@
 package app.revanced.patches.youtube.layout.seekbar.customseekbarcolor.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.annotations.DependsOn
@@ -19,7 +18,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 @DependsOn([ResourceMappingPatch::class])
 @Name("custom-seekbar-color-bytecode-patch")
 @YouTubeCompatibility
-@Version("0.0.1")
 class CustomSeekbarColorBytecodePatch : BytecodePatch() {
 
     // list of resource names to get the id of

@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object LithoThemeFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PROTECTED or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.APUT,

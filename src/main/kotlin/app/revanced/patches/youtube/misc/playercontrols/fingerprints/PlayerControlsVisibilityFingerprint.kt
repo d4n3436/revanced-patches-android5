@@ -6,6 +6,6 @@ object PlayerControlsVisibilityFingerprint : MethodFingerprint(
     returnType = "V",
     parameters = listOf("Z", "Z"),
     customFingerprint = {
-        it.definingClass.endsWith("YouTubeControlsOverlay;")
+            methodDef, _ -> methodDef.definingClass.endsWith("YouTubeControlsOverlay;")
     }
 )

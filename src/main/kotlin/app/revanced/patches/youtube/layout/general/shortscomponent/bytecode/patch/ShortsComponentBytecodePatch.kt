@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.layout.general.shortscomponent.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
@@ -21,7 +20,6 @@ import org.jf.dexlib2.Opcode
 @Name("hide-shorts-component-bytecode-patch")
 @DependsOn([ResourceMappingPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class ShortsComponentBytecodePatch : BytecodePatch() {
 
     // list of resource names to get the id of

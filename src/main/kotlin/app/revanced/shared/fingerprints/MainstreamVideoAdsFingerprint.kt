@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object MainstreamVideoAdsFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PRIVATE or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     parameters = listOf("L","Z"),
     opcodes = listOf(
         Opcode.IGET_OBJECT,

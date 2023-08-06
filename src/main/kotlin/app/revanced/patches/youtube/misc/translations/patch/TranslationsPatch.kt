@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.misc.translations.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -18,7 +17,6 @@ import app.revanced.shared.util.resources.ResourceHelper
 @Description("Add Crowdin Translations.")
 @DependsOn([SettingsPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class TranslationsPatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 

@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.layout.general.widesearchbar.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.data.toMethodWalker
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -17,7 +16,6 @@ import app.revanced.shared.util.integrations.Constants.GENERAL_LAYOUT
 
 @Name("enable-wide-searchbar-bytecode-patch")
 @YouTubeCompatibility
-@Version("0.0.1")
 class WideSearchbarBytecodePatch : BytecodePatch(
     listOf(
         WideSearchbarOneParentFingerprint,

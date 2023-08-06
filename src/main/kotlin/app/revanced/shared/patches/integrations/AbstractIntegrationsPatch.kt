@@ -1,19 +1,18 @@
 package app.revanced.shared.patches.integrations
 
 import app.revanced.patcher.annotation.Description
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultError
 import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.shared.extensions.toErrorResult
+import org.jf.dexlib2.iface.ClassDef
 import org.jf.dexlib2.iface.Method
 
 @Description("Applies mandatory patches to implement the ReVanced integrations into the application.")
-@Version("0.0.1")
 abstract class AbstractIntegrationsPatch(
     private val integrationsDescriptor: String,
     private val hooks: Iterable<IntegrationsFingerprint>
@@ -26,7 +25,7 @@ abstract class AbstractIntegrationsPatch(
      */
     abstract class IntegrationsFingerprint(
         strings: Iterable<String>? = null,
-        customFingerprint: ((methodDef: Method) -> Boolean)? = null,
+        customFingerprint: ((methodDef: Method, classDef: ClassDef) -> Boolean)? = null,
         private val contextRegisterResolver: (Method) -> Int = object : RegisterResolver {}
     ) : MethodFingerprint(strings = strings, customFingerprint = customFingerprint) {
         fun invoke(integrationsDescriptor: String): PatchResult {

@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object ShortsTextComponentParentFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PROTECTED or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PROTECTED or AccessFlags.FINAL,
     parameters = listOf("L", "L"),
     opcodes = listOf(
         Opcode.IGET_OBJECT,

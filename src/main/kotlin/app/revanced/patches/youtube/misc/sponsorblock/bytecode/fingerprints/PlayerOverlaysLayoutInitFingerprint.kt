@@ -4,5 +4,5 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 
 object PlayerOverlaysLayoutInitFingerprint : MethodFingerprint(
 
-    customFingerprint = { methodDef -> methodDef.returnType.endsWith("YouTubePlayerOverlaysLayout;") }
+    customFingerprint = { methodDef, _ -> methodDef.returnType.endsWith("YouTubePlayerOverlaysLayout;") }
 )

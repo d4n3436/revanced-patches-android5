@@ -5,6 +5,8 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import org.jf.dexlib2.AccessFlags
 
 object IntegrityCheckFingerprint : MethodFingerprint(
-    "L", AccessFlags.PUBLIC or AccessFlags.STATIC, listOf("L", "L"),
+    returnType = "L",
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    parameters = listOf("L", "L"),
     strings = listOf("This should never happen.", "GooglePlayServicesUtil", "Google Play Store signature invalid.")
 )

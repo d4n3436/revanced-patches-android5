@@ -8,10 +8,10 @@ import org.jf.dexlib2.iface.instruction.NarrowLiteralInstruction
 
 object MinimizedPlaybackManagerFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
     parameters = listOf("L"),
     opcodes = listOf(Opcode.AND_INT_LIT16),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation!!.instructions.any {
             ((it as? NarrowLiteralInstruction)?.narrowLiteral == 64657230)
         }

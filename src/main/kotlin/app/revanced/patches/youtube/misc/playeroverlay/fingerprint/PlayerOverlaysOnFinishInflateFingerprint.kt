@@ -4,6 +4,6 @@ import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 
 object PlayerOverlaysOnFinishInflateFingerprint : MethodFingerprint(
     customFingerprint = {
-        it.definingClass.endsWith("YouTubePlayerOverlaysLayout;") && it.name == "onFinishInflate"
+            methodDef, _ -> methodDef.definingClass.endsWith("YouTubePlayerOverlaysLayout;") && methodDef.name == "onFinishInflate"
     }
 )

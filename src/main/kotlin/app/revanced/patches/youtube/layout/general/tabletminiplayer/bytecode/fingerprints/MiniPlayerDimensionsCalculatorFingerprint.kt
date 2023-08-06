@@ -10,7 +10,7 @@ import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 object MiniPlayerDimensionsCalculatorFingerprint : MethodFingerprint(
     "V",
     AccessFlags.PUBLIC or AccessFlags.FINAL,
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any { instruction ->
             instruction.opcode.ordinal == Opcode.CONST.ordinal &&
                     (instruction as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.floatybarQueueLabelId

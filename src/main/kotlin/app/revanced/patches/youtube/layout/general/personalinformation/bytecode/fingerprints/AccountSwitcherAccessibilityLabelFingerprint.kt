@@ -15,7 +15,7 @@ object AccountSwitcherAccessibilityLabelFingerprint : MethodFingerprint(
         Opcode.APUT_OBJECT,
         Opcode.CONST
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any { it ->
             it.opcode.ordinal == Opcode.CONST.ordinal &&
             (it as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.accountSwitcherAccessibilityLabelId

@@ -98,8 +98,8 @@
 
             <!-- SETTINGS: HIDE_SHORTS_PLAYER_PIVOT_BAR
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_experimental_flag" />
-            <SwitchPreference android:title="@string/revanced_hide_shorts_player_pivot_bar_type_a_title" android:key="revanced_hide_shorts_player_pivot_bar_type_a" android:defaultValue="false" android:summary="@string/revanced_hide_shorts_player_pivot_bar_type_a_summary" />
-            <SwitchPreference android:title="@string/revanced_hide_shorts_player_pivot_bar_type_b_title" android:key="revanced_hide_shorts_player_pivot_bar_type_b" android:defaultValue="false" android:summary="@string/revanced_hide_shorts_player_pivot_bar_type_b_summary" />SETTINGS: HIDE_SHORTS_PLAYER_PIVOT_BAR -->
+            <SwitchPreference android:title="@string/revanced_hide_shorts_player_pivot_bar_title" android:key="revanced_hide_shorts_player_pivot_bar" android:defaultValue="false" android:summary="@string/revanced_hide_shorts_player_pivot_bar_summary" />
+            <Preference android:title="@string/revanced_hide_shorts_player_pivot_bar_another_method_title" android:summary="@string/revanced_hide_shorts_player_pivot_bar_another_method_summary" />SETTINGS: HIDE_SHORTS_PLAYER_PIVOT_BAR -->
 
         <!-- SETTINGS: SHORTS_COMPONENT.PARENT
         </PreferenceScreen>SETTINGS: SHORTS_COMPONENT.PARENT -->
@@ -293,6 +293,9 @@
         <!-- SETTINGS: ENABLE_MINIMIZED_PLAYBACK
         <SwitchPreference android:title="@string/revanced_enable_minimized_playback_title" android:key="revanced_enable_minimized_playback" android:defaultValue="true" android:summaryOn="@string/revanced_enable_minimized_playback_summary_on" android:summaryOff="@string/revanced_enable_minimized_playback_summary_off" />SETTINGS: ENABLE_MINIMIZED_PLAYBACK -->
 
+        <!-- SETTINGS: SPOOF_PLAYER_PARAMETER_GUIDANCE
+        <Preference android:title="@string/revanced_spoof_player_parameter_misc_guide_title" android:summary="@string/revanced_spoof_player_parameter_misc_guide_summary" />SETTINGS: SPOOF_PLAYER_PARAMETER_GUIDANCE -->
+
     <!-- PREFERENCE: MISC_SETTINGS
     </PreferenceScreen>PREFERENCE: MISC_SETTINGS -->
 
@@ -349,21 +352,23 @@
 
         <!-- SETTINGS: EXPERIMENTAL_FLAGS
         <Preference android:title=" " android:selectable="false" android:key="revanced_experimental_flag" android:summary="@string/revanced_experimental_flag" />SETTINGS: EXPERIMENTAL_FLAGS -->
-        <!-- SETTINGS: ENABLE_OLD_LAYOUT
-        <SwitchPreference android:title="@string/revanced_enable_new_layout_title" android:key="revanced_enable_old_layout" android:defaultValue="false" android:summary="@string/revanced_enable_new_layout_summary" />SETTINGS: ENABLE_OLD_LAYOUT -->
         <!-- SETTINGS: LAYOUT_SWITCH
         <SwitchPreference android:title="@string/revanced_enable_tablet_layout_title" android:key="revanced_enable_tablet_layout" android:summary="@string/revanced_enable_tablet_layout_summary" android:defaultValue="false" />
         <SwitchPreference android:title="@string/revanced_enable_phone_layout_title" android:key="revanced_enable_phone_layout" android:summary="@string/revanced_enable_phone_layout_summary" android:defaultValue="false" />SETTINGS: LAYOUT_SWITCH -->
         <!-- SETTINGS: ENABLE_VP9_CODEC
         <SwitchPreference android:title="@string/revanced_enable_vp9_codec_title" android:key="revanced_enable_vp9_codec" android:defaultValue="false" android:summary="@string/revanced_enable_vp9_codec_summary" />SETTINGS: ENABLE_VP9_CODEC -->
         <!-- SETTINGS: ENABLE_PROTOBUF_SPOOF
-        <SwitchPreference android:title="@string/revanced_enable_protobuf_spoof_title" android:key="revanced_enable_protobuf_spoof" android:defaultValue="true" android:summary="@string/revanced_enable_protobuf_spoof_summary" />SETTINGS: ENABLE_PROTOBUF_SPOOF -->
+        <SwitchPreference android:title="@string/revanced_spoof_player_parameter_title" android:key="revanced_spoof_player_parameter" android:defaultValue="true" android:summary="@string/revanced_spoof_player_parameter_summary" />
+        <SwitchPreference android:title="@string/revanced_spoof_player_parameter_type_title" android:key="revanced_spoof_player_parameter_type" android:defaultValue="true" android:summaryOn="@string/revanced_spoof_player_parameter_type_summary_on" android:summaryOff="@string/revanced_spoof_player_parameter_type_summary_off" />SETTINGS: ENABLE_PROTOBUF_SPOOF -->
+        <!-- SETTINGS: SPOOF_APP_VERSION
+        <EditTextPreference android:title="@string/revanced_spoof_app_version_title" android:key="revanced_spoof_app_version_target" android:summary="@string/revanced_spoof_app_version_summary" android:defaultValue="" android:hint="17.30.34" android:inputType="text" />
+        <Preference android:title="@string/revanced_spoof_app_version_info_title" android:summary="@string/revanced_spoof_app_version_info_summary" android:key="revanced_spoof_app_version_info"/>SETTINGS: SPOOF_APP_VERSION -->
 
         <!-- SETTINGS: ABOUT
         <Preference android:title=" " android:selectable="false" android:summary="@string/pref_about_category" />
         <PreferenceScreen android:title="@string/revanced_patches_information"  android:summary="@string/revanced_patches_information_summary" >
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_tool_used" />
-            <Preference android:title="revanced-patches" android:selectable="false" android:summary="2.160.6" />
+            <Preference android:title="revanced-patches" android:selectable="false" android:summary="2.160.5" />
             <Preference android:title="revanced-integrations" android:key="revanced-integrations" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_video_ads_removal_title" />
@@ -378,6 +383,7 @@
             <Preference android:title="hide-create-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-shorts-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-shorts-component" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="hide-shorts-navbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-startup-shorts-player" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-wide-searchbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-tablet-miniplayer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -435,10 +441,10 @@
             <Preference android:title="overlay-buttons" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_extended_title" />
-            <Preference android:title="enable-new-layout" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="spoof-app-version" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="layout-switch" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="force-vp9-codec" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="protobuf-spoof" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="spoof-player-parameters" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_others_title" />
             <Preference android:title="return-youtube-dislike" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
@@ -450,6 +456,7 @@
             <Preference android:title="optimize-resource" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="remove-player-button-background" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="translations" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
+            <Preference android:title="os-version-check" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="labels" android:summary="@string/revanced_labels_default" android:selectable="false"/>
             <Preference android:title="icons" android:summary="@string/revanced_icons_default" android:selectable="false"/>
             <Preference android:title="themes" android:summary="@string/revanced_themes_default" android:selectable="false"/>

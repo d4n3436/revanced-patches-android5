@@ -209,8 +209,6 @@ Is it ready to submit?"</string>
     <string name="revanced_enable_minimized_playback_summary_off">Minimized playback is disabled</string>
     <string name="revanced_enable_minimized_playback_summary_on">Minimized playback is enabled</string>
     <string name="revanced_enable_minimized_playback_title">Enable minimized playback</string>
-    <string name="revanced_enable_new_layout_summary">Trick the YouTube version to force enable new layout</string>
-    <string name="revanced_enable_new_layout_title">Enable new layout</string>
     <string name="revanced_enable_old_quality_layout_summary_off">New style quality settings are shown</string>
     <string name="revanced_enable_old_quality_layout_summary_on">Old style quality settings are shown</string>
     <string name="revanced_enable_old_quality_layout_title">Enable old style quality layout</string>
@@ -468,10 +466,6 @@ Is it ready to submit?"</string>
     <string name="revanced_player_flyout_panel_title">Player flyout panel component</string>
     <string name="revanced_reboot_warning_general">"As this is still an experimental feature, there may be other unknown issues.
 Are you sure you want to continue though?"</string>
-    <string name="revanced_reboot_warning_newlayout">"Tricks the YouTube client version to v18.05.40 to load the new layout.
-In the app settings, the YouTube version may be marked as v18.05.40.
-
-It will not be reflected immediately. It takes time to receive new layout from server."</string>
     <string name="revanced_reboot_warning_phone">"Tricks the dpi to change some layouts to phone layouts.
 
 If you enable this setting, the following features are available:
@@ -630,19 +624,48 @@ Rate Limited (Too many from the same user or IP)"</string>
     <string name="vote_upvote">Upvote</string>
 
     <!-- kitadai31 specific strings -->
-    <string name="revanced_enable_protobuf_spoof_summary">Spoofs the protobuf to prevent playback issues</string>
-    <string name="revanced_enable_protobuf_spoof_title">Enable protobuf spoof</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_type_a_title">Hide shorts player pivotbar - TypeA</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_type_a_summary">[Type A] Hide bottom navigation tabs and navigation bar while watching shorts.\nThis method is same as inotia00\'s original one.\nIt works only with new layout, so it must be enabled together with \"Enable new layout\" setting.\nKNOWN ISSUE: Once you open the comments, the effect will be lost and bottom of the screen turns white.</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_type_b_title">Hide shorts player pivotbar - TypeB</string>
-    <string name="revanced_hide_shorts_player_pivot_bar_type_b_summary">[Type B] Spoof app version to 17.03.38 to enable old layout shorts player.\nCannot be enabled in combination with \"Enable new layout\"</string>
-    <string name="revanced_reboot_warning_shorts_pivot_bar">"Tricks the YouTube client version to v17.03.38 to use old layout shorts player.
-In the app settings, the YouTube version may be marked as v17.03.38.
+    <string name="revanced_spoof_player_parameter_title">Spoof player parameter</string>
+    <string name="revanced_spoof_player_parameter_summary">"Spoofs player parameters to prevent the endless buffering issue
+(Formerly known as \"Protobuf spoof\")
+(Also known as \"Spoof app signature\")"</string>
+    <string name="revanced_spoof_player_parameter_type_title">Spoof player parameter type</string>
+    <string name="revanced_spoof_player_parameter_type_summary_on">"Select parameters used for spoofing
+ON = incognito mode parameter (recommended)
+OFF = Shorts player parameter
 
-Please understand that spoofing to old version means you will face some inconvenience and lack of features.
-For example, in search results, Shorts videos are treated as normal videos.
-(However, spoofing to 17.03.38 also brings unexpected benefit that \"Sort by oldest\" feature in the videos list of channel.)
+Known issues of incognito parameter
+- Seekbar thumbnails are hidden
+- Offline downloads may not work"</string>
+    <string name="revanced_spoof_player_parameter_type_summary_off">"Select parameters used for spoofing
+ON = incognito mode parameter (recommended)
+OFF = Shorts player parameter
 
-It will not be reflected immediately. It takes time to receive old layout from server."</string>
-    <string name="revanced_protobuf_spoof_notice">Spoofing protobuf to prevent playback issues</string>
+Known issues of Shorts parameter
+- Buffering issue may occurs at 1:09 or 1:10
+- End screen cards are always hidden
+- Channel watermark is always hidden
+- Offline downloads may not work"</string>
+    <string name="revanced_spoof_player_parameter_misc_guide_title">Are you looking for buffering fix?</string>
+    <string name="revanced_spoof_player_parameter_misc_guide_summary">The \"Spoof player parameter\" (prevent the buffering problem) setting is in \"Extended settings\" category.</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_title">Hide navigation bar in Shorts</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_summary">Hide bottom navigation bar while watching Shorts.\nIt works only with new layout, so it must be enabled in combination with \"Spoof app version\" setting.\nKNOWN ISSUE: Once you open the comments, the effect will be lost and bottom of the screen turns white.</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_another_method_title">(Another method to hide navigation bar)</string>
+    <string name="revanced_hide_shorts_player_pivot_bar_another_method_summary">Spoofing app version to 17.06.34 also hides bottom navigation tabs.\nLook at ReVanced settings &gt; Extended settings &gt; \"Spoof app version\"</string>
+    <string name="revanced_spoof_app_version_title">Spoof app version</string>
+    <string name="revanced_spoof_app_version_summary">"Tricks the YouTube client version to enable the new layout or restore old layout.
+Empty = No spoofing
+
+Examples of benefits of version spoofing:
+- Enable new UI layout
+- Restore old UI layout
+- Hide bottom tabs while watching shorts
+Please read \"More information about Spoof app version\""</string>
+    <string name="revanced_spoof_app_version_info_title">More information about \"Spoof app version\"</string>
+    <string name="revanced_spoof_app_version_info_summary">https://github.com/kitadai31/revanced-patches-android6-7/wiki/Spoof-app-version-information</string>
+    <string name="revanced_reboot_first_run">Restart to load the layout normally when the first run</string>
+    <string name="revanced_newer_android_warning_body">"This YouTube ReVanced is Android 6.0-7.1 only.
+However, your device is running Android 8.0 or higher.
+You may be using the wrong ReVanced.
+
+Tap \"OK\" to exit the app."</string>
 </resources>

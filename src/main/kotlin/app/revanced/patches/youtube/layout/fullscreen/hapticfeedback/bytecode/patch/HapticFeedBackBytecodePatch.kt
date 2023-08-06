@@ -1,11 +1,10 @@
 package app.revanced.patches.youtube.layout.fullscreen.hapticfeedback.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -19,7 +18,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("disable-haptic-feedback-bytecode-patch")
 @YouTubeCompatibility
-@Version("0.0.1")
 class HapticFeedBackBytecodePatch : BytecodePatch(
     listOf(
         MarkerHapticsFingerprint,
@@ -58,7 +56,7 @@ class HapticFeedBackBytecodePatch : BytecodePatch(
             with (mutableMethod) {
                 removeInstruction(insertIndex)
 
-                addInstructions(
+                addInstructionsWithLabels(
                     insertIndex, """
                      invoke-static {}, $FULLSCREEN_LAYOUT->$targetMethodName()Z
                      move-result v$dummyRegister
@@ -67,28 +65,28 @@ class HapticFeedBackBytecodePatch : BytecodePatch(
                      goto :exit
                      :vibrate
                      const-wide/16 v$targetRegister, 0x19
-                """, listOf(ExternalLabel("exit", mutableMethod.instruction(insertIndex)))
+                """, ExternalLabel("exit", mutableMethod.getInstruction(insertIndex))
                 )
 
-                addInstructions(
+                addInstructionsWithLabels(
                     startIndex, """
                      invoke-static {}, $FULLSCREEN_LAYOUT->$targetMethodName()Z
                      move-result v$dummyRegister
                      if-eqz v$dummyRegister, :vibrate
                      return-void
-                """, listOf(ExternalLabel("vibrate", mutableMethod.instruction(startIndex)))
+                """, ExternalLabel("vibrate", mutableMethod.getInstruction(startIndex))
                 )
             }
         }
 
         fun MethodFingerprintResult.voidHaptics(targetMethodName: String) {
-             mutableMethod.addInstructions(
+             mutableMethod.addInstructionsWithLabels(
                  0, """
                      invoke-static {}, $FULLSCREEN_LAYOUT->$targetMethodName()Z
                      move-result v0
                      if-eqz v0, :vibrate
                      return-void
-                 """, listOf(ExternalLabel("vibrate", mutableMethod.instruction(0)))
+                 """, ExternalLabel("vibrate", mutableMethod.getInstruction(0))
              )
         }
     }

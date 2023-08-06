@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object TimeCounterFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.CONST_WIDE_16,
         Opcode.CMP_LONG

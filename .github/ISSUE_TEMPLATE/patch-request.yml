@@ -1,5 +1,5 @@
-name: ⭐ Patch Request
-description: Create a detailed patch request.
+name: ⭐ Patch Request (backport request)
+description: Create a patch request (backport request).
 title: 'feat(patch): '
 labels: [patch-request]
 body:

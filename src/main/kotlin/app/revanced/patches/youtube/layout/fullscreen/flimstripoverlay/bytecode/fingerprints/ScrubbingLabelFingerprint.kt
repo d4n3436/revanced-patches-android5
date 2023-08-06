@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object ScrubbingLabelFingerprint : MethodFingerprint(
     opcodes = listOf(Opcode.IPUT_BOOLEAN),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any {
             it.opcode.ordinal == Opcode.CONST.ordinal &&
             (it as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.scrubbingLabelId

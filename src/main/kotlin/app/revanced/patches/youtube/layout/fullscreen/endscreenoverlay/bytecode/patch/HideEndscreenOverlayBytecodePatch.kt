@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.layout.fullscreen.endscreenoverlay.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.annotations.DependsOn
@@ -20,7 +19,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction31i
 @Name("hide-endscreen-overlay-bytecode-patch")
 @DependsOn([ResourceMappingPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class HideEndscreenOverlayBytecodePatch : BytecodePatch() {
     // list of resource names to get the id of
     private val resourceIds = arrayOf(
@@ -46,13 +44,13 @@ class HideEndscreenOverlayBytecodePatch : BytecodePatch() {
                                         val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
 
                                         val dummyRegister = (instructions.elementAt(index) as Instruction31i).registerA
-                                        mutableMethod.addInstructions(
+                                        mutableMethod.addInstructionsWithLabels(
                                             insertIndex, """
                                                 invoke-static {}, $FULLSCREEN_LAYOUT->hideEndscreenOverlay()Z
                                                 move-result v$dummyRegister
                                                 if-eqz v$dummyRegister, :on
                                                 return-void
-                                            """, listOf(ExternalLabel("on", mutableMethod.instruction(insertIndex)))
+                                            """, ExternalLabel("on", mutableMethod.getInstruction(insertIndex))
                                         )
 
                                         patchSuccessArray[0] = true;

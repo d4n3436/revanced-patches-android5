@@ -7,7 +7,7 @@ import org.jf.dexlib2.Opcode
 
 object MainstreamVideoIdFingerprint : MethodFingerprint(
     returnType = "V",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
         Opcode.IF_EQZ,
@@ -25,5 +25,5 @@ object MainstreamVideoIdFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT_OBJECT
     ),
     null,
-    { it.definingClass.endsWith("SubtitlesOverlayPresenter;") }
+    { methodDef, _ -> methodDef.definingClass.endsWith("SubtitlesOverlayPresenter;") }
 )

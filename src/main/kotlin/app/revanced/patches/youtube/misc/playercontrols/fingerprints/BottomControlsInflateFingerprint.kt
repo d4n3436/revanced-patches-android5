@@ -11,7 +11,7 @@ object BottomControlsInflateFingerprint : MethodFingerprint(
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any {
             it.opcode.ordinal == Opcode.CONST.ordinal &&
             (it as? WideLiteralInstruction)?.wideLiteral == SharedResourcdIdPatch.bottomUiContainerResourceId

@@ -1,9 +1,8 @@
 package app.revanced.shared.patches.theme.bytecode
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -16,7 +15,6 @@ import app.revanced.shared.util.integrations.Constants.UTILS_PATH
 @Name("general-theme")
 @DependsOn([GeneralThemeResourcePatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class GeneralThemePatch : BytecodePatch(
     listOf(
         LithoThemeFingerprint

@@ -2,7 +2,6 @@ package app.revanced.shared.patches.options
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patcher.patch.*
@@ -12,7 +11,6 @@ import app.revanced.shared.annotation.YouTubeCompatibility
 @Name("patch-options")
 @Description("Create an options.toml file.")
 @YouTubeCompatibility
-@Version("0.0.1")
 class PatchOptions : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
         return PatchResultSuccess()

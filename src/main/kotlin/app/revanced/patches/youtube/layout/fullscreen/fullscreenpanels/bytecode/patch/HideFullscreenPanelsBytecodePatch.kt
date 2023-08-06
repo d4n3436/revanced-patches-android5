@@ -1,11 +1,11 @@
 package app.revanced.patches.youtube.layout.fullscreen.fullscreenpanels.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
-import app.revanced.patcher.extensions.removeInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -21,7 +21,6 @@ import org.jf.dexlib2.iface.instruction.formats.Instruction35c
 
 @Name("hide-fullscreen-panels-bytecode-patch")
 @YouTubeCompatibility
-@Version("0.0.1")
 class HideFullscreenPanelsBytecodePatch : BytecodePatch(
     listOf(
         FullscreenViewAdderFingerprint,
@@ -52,12 +51,12 @@ class HideFullscreenPanelsBytecodePatch : BytecodePatch(
                                 "Landroid/widget/FrameLayout;->addView(Landroid/view/View;)V")
             }
 
-            method.addInstructions(
+            method.addInstructionsWithLabels(
                 invokeIndex, """
                     invoke-static {}, $FULLSCREEN_LAYOUT->hideFullscreenPanel()Z
                     move-result v15
                     if-nez v15, :hidden
-                """, listOf(ExternalLabel("hidden", method.instruction(invokeIndex + 1)))
+                """, ExternalLabel("hidden", method.getInstruction(invokeIndex + 1))
             )
         } ?: return LayoutConstructorFingerprint.toErrorResult()
 

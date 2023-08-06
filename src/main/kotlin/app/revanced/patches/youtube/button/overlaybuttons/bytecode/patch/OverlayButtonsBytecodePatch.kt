@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.button.overlaybuttons.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -20,7 +19,6 @@ import app.revanced.shared.util.integrations.Constants.BUTTON_PATH
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class OverlayButtonsBytecodePatch : BytecodePatch() {
     override fun execute(context: BytecodeContext): PatchResult {
         val AutoRepeat = "$BUTTON_PATH/AutoRepeat;"

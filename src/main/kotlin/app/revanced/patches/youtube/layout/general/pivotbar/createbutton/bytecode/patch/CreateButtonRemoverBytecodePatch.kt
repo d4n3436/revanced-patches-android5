@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.layout.general.pivotbar.createbutton.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.MethodFingerprintExtensions.name
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
@@ -18,7 +17,6 @@ import app.revanced.shared.util.pivotbar.InjectionUtils.REGISTER_TEMPLATE_REPLAC
 
 @Name("hide-create-button-bytecode-patch")
 @YouTubeCompatibility
-@Version("0.0.1")
 class CreateButtonRemoverBytecodePatch : BytecodePatch(
     listOf(PivotBarFingerprint)
 ) {

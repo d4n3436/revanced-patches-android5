@@ -1,9 +1,8 @@
 package app.revanced.patches.youtube.layout.general.tabletminiplayer.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.BytecodePatch
@@ -21,7 +20,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("enable-tablet-miniplayer-bytecode-patch")
 @DependsOn([SharedResourcdIdPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class TabletMiniPlayerBytecodePatch : BytecodePatch(
     listOf(
         MiniPlayerDimensionsCalculatorFingerprint,

@@ -1,9 +1,8 @@
 package app.revanced.patches.youtube.misc.sponsorblock.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprintResult
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.BytecodePatch
@@ -33,7 +32,6 @@ import org.jf.dexlib2.Opcode
     ]
 )
 @YouTubeCompatibility
-@Version("0.0.1")
 class SponsorBlockBytecodePatch : BytecodePatch(
     listOf(
         NextGenWatchLayoutFingerprint,

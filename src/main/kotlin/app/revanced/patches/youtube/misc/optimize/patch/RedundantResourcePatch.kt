@@ -2,7 +2,6 @@ package app.revanced.patches.youtube.misc.optimize.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -17,7 +16,6 @@ import java.nio.file.StandardCopyOption
 @Name("remove-duplicate-resource-patch")
 @Description("Removes duplicate resources from YouTube.")
 @YouTubeCompatibility
-@Version("0.0.1")
 class RedundantResourcePatch : ResourcePatch {
     override fun execute(context: ResourceContext): PatchResult {
 

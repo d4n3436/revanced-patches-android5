@@ -1,9 +1,8 @@
 package app.revanced.patches.youtube.layout.player.autoplaybutton.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -22,7 +21,6 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @Name("hide-autoplay-button-bytecode-patch")
 @DependsOn([ResourceMappingPatch::class])
 @YouTubeCompatibility
-@Version("0.0.1")
 class HideAutoplayButtonBytecodePatch : BytecodePatch(
     listOf(
             LayoutConstructorFingerprint
@@ -47,12 +45,12 @@ class HideAutoplayButtonBytecodePatch : BytecodePatch(
 
                 val jumpInstruction = this[insertIndex + branchIndex] as Instruction
 
-                method.addInstructions(
+                method.addInstructionsWithLabels(
                     insertIndex, """
                         invoke-static {}, $PLAYER_LAYOUT->hideAutoPlayButton()Z
                         move-result v15
                         if-nez v15, :hidden
-                    """, listOf(ExternalLabel("hidden", jumpInstruction))
+                    """, ExternalLabel("hidden", jumpInstruction)
                 )
             }
         } ?: return LayoutConstructorFingerprint.toErrorResult()

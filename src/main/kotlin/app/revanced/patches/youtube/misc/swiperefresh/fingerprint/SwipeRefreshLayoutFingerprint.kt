@@ -7,15 +7,15 @@ import org.jf.dexlib2.Opcode
 
 object SwipeRefreshLayoutFingerprint : MethodFingerprint(
     returnType = "Z",
-    access = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = listOf(),
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    parameters = emptyList(),
     opcodes = listOf(
         Opcode.RETURN,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT,
         Opcode.RETURN
     ),
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.definingClass == "Landroidx/swiperefreshlayout/widget/SwipeRefreshLayout;"
     }
 )

@@ -1,7 +1,6 @@
 package app.revanced.patches.youtube.layout.general.pivotbar.shortsbutton.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
@@ -18,7 +17,6 @@ import app.revanced.shared.util.pivotbar.InjectionUtils.injectHook
 
 @Name("hide-shorts-button")
 @YouTubeCompatibility
-@Version("0.0.1")
 class ShortsButtonRemoverBytecodePatch : BytecodePatch(
     listOf(PivotBarFingerprint)
 ) {

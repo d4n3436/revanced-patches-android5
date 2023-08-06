@@ -1,10 +1,9 @@
 package app.revanced.patches.youtube.ads.general.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
-import app.revanced.patcher.extensions.instruction
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
+import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
@@ -30,7 +29,6 @@ import org.jf.dexlib2.iface.reference.MethodReference
 @DependsOn([ResourceMappingPatch::class])
 @Name("hide-general-ads-bytecode-patch")
 @YouTubeCompatibility
-@Version("0.0.1")
 class GeneralAdsBytecodePatch : BytecodePatch(
     listOf(ComponentContextParserFingerprint)
 ) {
@@ -48,20 +46,20 @@ class GeneralAdsBytecodePatch : BytecodePatch(
                     (it as BuilderInstruction21s).narrowLiteral == 124
                 } + 3
 
-                val stringBuilderRegister = (instruction(insertHookIndex) as OneRegisterInstruction).registerA
-                val clobberedRegister = (instruction(insertHookIndex - 3) as OneRegisterInstruction).registerA
+                val stringBuilderRegister = (getInstruction(insertHookIndex) as OneRegisterInstruction).registerA
+                val clobberedRegister = (getInstruction(insertHookIndex - 3) as OneRegisterInstruction).registerA
 
                 val bufferIndex = implementation!!.instructions.indexOfFirst {
                     it.opcode == Opcode.CONST &&
                     (it as Instruction31i).narrowLiteral == 183314536
                 } - 1
 
-                val bufferRegister = (instruction(bufferIndex) as OneRegisterInstruction).registerA
+                val bufferRegister = (getInstruction(bufferIndex) as OneRegisterInstruction).registerA
 
-                val builderMethodDescriptor = instruction(builderMethodIndex).toDescriptor()
-                val emptyComponentFieldDescriptor = instruction(emptyComponentFieldIndex).toDescriptor()
+                val builderMethodDescriptor = getInstruction(builderMethodIndex).toDescriptor()
+                val emptyComponentFieldDescriptor = getInstruction(emptyComponentFieldIndex).toDescriptor()
 
-                addInstructions(
+                addInstructionsWithLabels(
                     insertHookIndex, // right after setting the component.pathBuilder field,
                     """
                         invoke-static {v$stringBuilderRegister, v$bufferRegister}, $ADS_PATH/LithoFilterPatch;->filter(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
@@ -73,7 +71,7 @@ class GeneralAdsBytecodePatch : BytecodePatch(
                         iget-object v0, v0, $emptyComponentFieldDescriptor
                         return-object v0
                     """,
-                    listOf(ExternalLabel("not_an_ad", instruction(insertHookIndex)))
+                    ExternalLabel("not_an_ad", getInstruction(insertHookIndex))
                 )
             }
         } ?: return PatchResultError("Could not find the method to hook.")

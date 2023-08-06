@@ -6,7 +6,7 @@ import org.jf.dexlib2.Opcode
 import org.jf.dexlib2.iface.instruction.WideLiteralInstruction
 
 object PivotBarFingerprint : MethodFingerprint(
-    customFingerprint = { methodDef ->
+    customFingerprint = { methodDef, _ ->
         methodDef.implementation?.instructions?.any {
             it.opcode.ordinal == Opcode.CONST.ordinal &&
             (it as WideLiteralInstruction).wideLiteral == SharedResourcdIdPatch.imageOnlyTabId

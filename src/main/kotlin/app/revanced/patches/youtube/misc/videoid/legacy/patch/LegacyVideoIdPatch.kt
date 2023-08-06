@@ -2,9 +2,8 @@ package app.revanced.patches.youtube.misc.videoid.legacy.patch
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
-import app.revanced.patcher.annotation.Version
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.extensions.addInstructions
+import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.PatchResult
 import app.revanced.patcher.patch.PatchResultSuccess
@@ -17,7 +16,6 @@ import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("video-id-hook-legacy")
 @Description("Hook to detect when the video id changes (legacy)")
 @YouTubeCompatibility
-@Version("0.0.1")
 class LegacyVideoIdPatch : BytecodePatch(
     listOf(
         LegacyVideoIdFingerprint
