@@ -28,7 +28,6 @@ import org.jf.dexlib2.iface.instruction.ReferenceInstruction
 @Name("spoof-player-parameters-bytecode-patch")
 @DependsOn([
     PlayerTypeHookPatch::class,
-    MainstreamVideoIdPatch::class,
     SpoofPlayerParameterResourcePatch::class
 ])
 @YouTubeCompatibility
@@ -128,7 +127,8 @@ class SpoofPlayerParameterBytecodePatch : BytecodePatch(
         ) ?: return SubtitleWindowFingerprint.toErrorResult()
 
         // Hook video id, required for subtitle fix.
-        MainstreamVideoIdPatch.injectCall("$MISC_PATH/SpoofPlayerParameterPatch;->setCurrentVideoId(Ljava/lang/String;)V")
+        // Doesn't work on v16.40.36
+        // MainstreamVideoIdPatch.injectCall("$MISC_PATH/SpoofPlayerParameterPatch;->setCurrentVideoId(Ljava/lang/String;)V")
 
         return PatchResultSuccess()
     }
