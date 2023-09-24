@@ -26,14 +26,14 @@ class MinimizedPlaybackBytecodePatch : BytecodePatch(
 ) {
     override fun execute(context: BytecodeContext) {
         val methods = arrayOf(
-            MinimizedPlaybackManagerFingerprint,
+            KidsMinimizedPlaybackPolicyControllerFingerprint,
+            MinimizedPlaybackManagerFingerprint
         ).map {
             it.result?.mutableMethod?: throw it.exception
         }
 
         methods[0].hookPlaybackController()
         methods[1].hookPlayback()
-        methods[2].walkMutable(context)
     }
 
     private companion object {
