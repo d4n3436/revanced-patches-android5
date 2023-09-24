@@ -56,6 +56,14 @@ class MicroGPatch : ResourcePatch {
             )
         )
 
+        val settingsFragmentv22 = context["res/xml-v22/settings_fragment.xml"]
+        settingsFragmentv22.writeText(
+            settingsFragmentv22.readText().replace(
+                "android:targetPackage=\"com.google.android.youtube",
+                "android:targetPackage=\"$packageName"
+            )
+        )
+
         // update manifest
         MicroGResourceHelper.patchManifest(
             context,

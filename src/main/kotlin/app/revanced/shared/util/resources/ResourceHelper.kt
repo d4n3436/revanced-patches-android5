@@ -204,6 +204,14 @@ internal object ResourceHelper {
                 "DeveloperPrefsFragment\" app:iconSpaceReserved=\"false\" /><Preference android:title=\"@string/revanced_settings\" android:summary=\"@string/revanced_extended_settings\"><intent android:targetPackage=\"com.google.android.youtube\" android:data=\"revanced_settings\" android:targetClass=\"com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity\"/></Preference><!-- PREFERENCE: RETURN_YOUTUBE_DISLIKE<Preference android:title=\"@string/revanced_ryd_settings_title\" android:summary=\"@string/revanced_ryd_settings_summary\"><intent android:targetPackage=\"com.google.android.youtube\" android:data=\"ryd_settings\" android:targetClass=\"com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity\" /></Preference>PREFERENCE: RETURN_YOUTUBE_DISLIKE --><!-- PREFERENCE: SPONSOR_BLOCK<Preference android:title=\"@string/sb_settings\" android:summary=\"@string/sb_summary\"><intent android:targetPackage=\"com.google.android.youtube\" android:data=\"sponsorblock_settings\" android:targetClass=\"com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity\" /></Preference>PREFERENCE: SPONSOR_BLOCK -->"
             )
         )
+
+        val fragmentv22 = context["res/xml-v22/settings_fragment.xml"]
+        fragmentv22.writeText(
+            fragmentv22.readText().replace(
+                "DeveloperPrefsFragment\" app:iconSpaceReserved=\"false\" />",
+                "DeveloperPrefsFragment\" app:iconSpaceReserved=\"false\" /><Preference android:title=\"@string/revanced_settings\" android:summary=\"@string/revanced_extended_settings\"><intent android:targetPackage=\"com.google.android.youtube\" android:data=\"revanced_settings\" android:targetClass=\"com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity\"/></Preference><!-- PREFERENCE: RETURN_YOUTUBE_DISLIKE<Preference android:title=\"@string/revanced_ryd_settings_title\" android:summary=\"@string/revanced_ryd_settings_summary\"><intent android:targetPackage=\"com.google.android.youtube\" android:data=\"ryd_settings\" android:targetClass=\"com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity\" /></Preference>PREFERENCE: RETURN_YOUTUBE_DISLIKE --><!-- PREFERENCE: SPONSOR_BLOCK<Preference android:title=\"@string/sb_settings\" android:summary=\"@string/sb_summary\"><intent android:targetPackage=\"com.google.android.youtube\" android:data=\"sponsorblock_settings\" android:targetClass=\"com.google.android.apps.youtube.app.settings.videoquality.VideoQualitySettingsActivity\" /></Preference>PREFERENCE: SPONSOR_BLOCK -->"
+            )
+        )
     }
 
     fun addTranslations(
@@ -236,7 +244,7 @@ internal object ResourceHelper {
         context: ResourceContext,
         Preference: String
     ) {
-        val fragment = context["res/xml/settings_fragment.xml"]
+        val fragment = context["res/xml-v22/settings_fragment.xml"]
         fragment.writeText(
             fragment.readText()
             .replace("<!-- $Preference", "")
