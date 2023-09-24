@@ -1,6 +1,8 @@
 # YouTube ReVanced for Android 5
 
-Currently only a minimal set of patches work (`microg-support`, `protobuf-spoof`, `client-spoof`, `hide-video-ads` and others).
+Unofficial ReVanced Extended for YouTube 16.40.36. Based on [kitadai31's fork of ReVanced Extended for Android 6/7](https://github.com/kitadai31/revanced-patches-android6-7)
+
+Around half of the patches currently work.
 
 ## How to patch
 
@@ -14,7 +16,12 @@ Currently only a minimal set of patches work (`microg-support`, `protobuf-spoof`
 
 - Patch with the following command (file names changed for brevity):
 ```
-java -jar revanced-cli.jar -a YouTube_16.40.36.apk -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.160.7.jar -m revanced-integrations-0.96.5.apk -i microg-support -i spoof-player-parameters -i client-spoof -i hide-video-ads -i enable-minimized-playback --exclusive
+java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.160.8.jar -m revanced-integrations-0.96.6.apk -i microg-support -i spoof-player-parameters -i client-spoof -i hide-video-ads -i enable-minimized-playback --exclusive
+```
+
+- Or patch with all the supported patches (ignore the errors):
+```
+java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.160.8.jar -m revanced-integrations-0.96.6.apk -e custom-seekbar-color -e optimize-resource
 ```
 
 Refer to the original [repository](https://github.com/kitadai31/revanced-patches-android6-7) for more info.
