@@ -2,23 +2,17 @@ package app.revanced.patches.youtube.misc.minimizedplayback.bytecode.patch
 
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
+import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
-import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
-import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
-import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.misc.minimizedplayback.bytecode.fingerprints.*
 import app.revanced.patches.youtube.misc.resourceid.patch.SharedResourcdIdPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
-import app.revanced.shared.util.integrations.Constants.MISC_PATH
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.reference.MethodReference
+import app.revanced.shared.extensions.exception
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @Name("enable-minimized-playback-bytecode-patch")
 @DependsOn([SharedResourcdIdPatch::class])
@@ -30,24 +24,19 @@ class MinimizedPlaybackBytecodePatch : BytecodePatch(
         MinimizedPlaybackSettingsFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         val methods = arrayOf(
-            KidsMinimizedPlaybackPolicyControllerFingerprint,
-            MinimizedPlaybackManagerFingerprint
+            MinimizedPlaybackManagerFingerprint,
         ).map {
-            it.result?.mutableMethod?: return it.toErrorResult()
+            it.result?.mutableMethod?: throw it.exception
         }
 
         methods[0].hookPlaybackController()
         methods[1].hookPlayback()
-
-        return PatchResultSuccess()
+        methods[2].walkMutable(context)
     }
 
     private companion object {
-        const val INTEGRATIONS_PLAYBACK_METHOD_REFERENCE =
-            "$MISC_PATH/MinimizedPlaybackPatch;->enableMinimizedPlayback()Z"
-
         fun MutableMethod.walkMutable(
             context: BytecodeContext) {
             val booleanCalls = implementation!!.instructions.withIndex()
@@ -65,22 +54,14 @@ class MinimizedPlaybackBytecodePatch : BytecodePatch(
         fun MutableMethod.hookPlayback() {
             addInstructions(
                 0, """
-                    invoke-static {}, $INTEGRATIONS_PLAYBACK_METHOD_REFERENCE
-                    move-result v0
+                    const/4 v0, 0x1
                     return v0
                 """
             )
         }
 
         fun MutableMethod.hookPlaybackController() {
-            addInstructionsWithLabels(
-                0, """
-                    invoke-static {}, $INTEGRATIONS_PLAYBACK_METHOD_REFERENCE
-                    move-result v0
-                    if-eqz v0, :default
-                    return-void
-                """, ExternalLabel("default", getInstruction(0))
-            )
+            addInstruction(0, "return-void")
         }
     }
 }

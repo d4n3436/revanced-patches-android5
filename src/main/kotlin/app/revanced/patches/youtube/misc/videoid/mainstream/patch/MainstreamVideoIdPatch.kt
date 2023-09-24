@@ -3,7 +3,6 @@ package app.revanced.patches.youtube.misc.videoid.mainstream.patch
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
-import app.revanced.patcher.data.toMethodWalker
 import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
@@ -11,28 +10,27 @@ import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patcher.patch.annotations.DependsOn
+import app.revanced.patcher.util.proxy.mutableTypes.MutableAnnotation
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod.Companion.toMutable
 import app.revanced.patches.youtube.misc.playertype.patch.PlayerTypeHookPatch
 import app.revanced.patches.youtube.misc.videoid.mainstream.fingerprint.*
 import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
+import app.revanced.shared.extensions.exception
 import app.revanced.shared.patches.timebar.HookTimebarPatch
 import app.revanced.shared.util.integrations.Constants.VIDEO_PATH
-import org.jf.dexlib2.AccessFlags
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.MutableMethodImplementation
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
-import org.jf.dexlib2.iface.reference.FieldReference
-import org.jf.dexlib2.iface.reference.MethodReference
-import org.jf.dexlib2.immutable.ImmutableMethod
-import org.jf.dexlib2.immutable.ImmutableMethodParameter
-import org.jf.dexlib2.util.MethodUtil
+import com.android.tools.smali.dexlib2.AccessFlags
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
+import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
+import com.android.tools.smali.dexlib2.util.MethodUtil
 
 @Name("video-id-hook-mainstream")
 @Description("Hook to detect when the video id changes (mainstream)")
@@ -55,7 +53,7 @@ class MainstreamVideoIdPatch : BytecodePatch(
         VideoTimeParentFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         RepeatListenerFingerprint.result?.let {
             val removeIndex = it.scanResult.patternScanResult!!.startIndex
@@ -63,7 +61,7 @@ class MainstreamVideoIdPatch : BytecodePatch(
                     // removeInstruction(removeIndex)
                     removeInstruction(removeIndex - 1)
                 }
-        } ?: return RepeatListenerFingerprint.toErrorResult()
+        } ?: throw RepeatListenerFingerprint.exception
 
 
         PlayerInitFingerprint.result?.let { parentResult ->
@@ -72,11 +70,14 @@ class MainstreamVideoIdPatch : BytecodePatch(
             SeekFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.let {
                 val resultMethod = it.method
 
+                // Required because build fails without it.
+                val nullMutableSet : MutableSet<MutableAnnotation>? = null
+
                 with (it.mutableMethod) {
                     val seekHelperMethod = ImmutableMethod(
                         resultMethod.definingClass,
                         "seekTo",
-                        listOf(ImmutableMethodParameter("J", null, "time")),
+                        listOf(ImmutableMethodParameter("J", nullMutableSet, "time")),
                         "Z",
                         AccessFlags.PUBLIC or AccessFlags.FINAL,
                         null, null,
@@ -97,16 +98,16 @@ class MainstreamVideoIdPatch : BytecodePatch(
 
                     parentResult.mutableClass.methods.add(seekHelperMethod)
                 }
-            } ?: return SeekFingerprint.toErrorResult()
-        } ?: return PlayerInitFingerprint.toErrorResult()
+            } ?: throw SeekFingerprint.exception
+        } ?: throw PlayerInitFingerprint.exception
 
 
         VideoTimeParentFingerprint.result?.let { parentResult ->
             VideoTimeFingerprint.also { it.resolve(context, parentResult.classDef) }.result?.mutableMethod?.addInstruction(
                 0,
                 "invoke-static {p1, p2}, $VideoInformation->setCurrentVideoTimeHighPrecision(J)V"
-            ) ?: return VideoTimeFingerprint.toErrorResult()
-        } ?: return VideoTimeParentFingerprint.toErrorResult()
+            ) ?: throw VideoTimeFingerprint.exception
+        } ?: throw VideoTimeParentFingerprint.exception
 
 
         /*
@@ -123,7 +124,7 @@ class MainstreamVideoIdPatch : BytecodePatch(
                     "invoke-static {p1, p2}, $VideoInformation->setCurrentVideoTime(J)V"
                 )
             }
-        } ?: return PlayerControllerSetTimeReferenceFingerprint.toErrorResult()
+        } ?: throw PlayerControllerSetTimeReferenceFingerprint.exception
 
 
         with (HookTimebarPatch.EmptyColorFingerprintResult.mutableMethod) {
@@ -167,7 +168,7 @@ class MainstreamVideoIdPatch : BytecodePatch(
                 break
             }
 
-        } ?: return PlayerControllerFingerprint.toErrorResult()
+        } ?: throw PlayerControllerFingerprint.exception
 
 
         MainstreamVideoIdFingerprint.result?.let {
@@ -178,13 +179,11 @@ class MainstreamVideoIdPatch : BytecodePatch(
                 videoIdRegister = (implementation!!.instructions[insertIndex] as OneRegisterInstruction).registerA
             }
             offset++ // offset so setCurrentVideoId is called before any injected call
-        } ?: return MainstreamVideoIdFingerprint.toErrorResult()
+        } ?: throw MainstreamVideoIdFingerprint.exception
 
         
         injectCall("$VideoInformation->setCurrentVideoId(Ljava/lang/String;)V")
         injectCallonCreate(VideoInformation, "onCreate")
-
-        return PatchResultSuccess()
     }
 
     companion object {

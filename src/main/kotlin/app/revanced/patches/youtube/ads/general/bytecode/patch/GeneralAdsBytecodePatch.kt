@@ -6,9 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWith
 import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint.Companion.resolve
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
 import app.revanced.patches.youtube.ads.general.bytecode.fingerprints.ComponentContextParserFingerprint
@@ -17,14 +15,14 @@ import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.patches.mapping.ResourceMappingPatch
 import app.revanced.shared.util.bytecode.BytecodeHelper
 import app.revanced.shared.util.integrations.Constants.ADS_PATH
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction21s
-import org.jf.dexlib2.iface.instruction.Instruction
-import org.jf.dexlib2.iface.instruction.OneRegisterInstruction
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.formats.Instruction31i
-import org.jf.dexlib2.iface.reference.FieldReference
-import org.jf.dexlib2.iface.reference.MethodReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21s
+import com.android.tools.smali.dexlib2.iface.instruction.Instruction
+import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @DependsOn([ResourceMappingPatch::class])
 @Name("hide-general-ads-bytecode-patch")
@@ -32,7 +30,7 @@ import org.jf.dexlib2.iface.reference.MethodReference
 class GeneralAdsBytecodePatch : BytecodePatch(
     listOf(ComponentContextParserFingerprint)
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         ComponentContextParserFingerprint.result?.let { result ->
             val builderMethodIndex = EmptyComponentBuilderFingerprint
                 .also { it.resolve(context, result.mutableMethod, result.mutableClass) }
@@ -74,11 +72,9 @@ class GeneralAdsBytecodePatch : BytecodePatch(
                     ExternalLabel("not_an_ad", getInstruction(insertHookIndex))
                 )
             }
-        } ?: return PatchResultError("Could not find the method to hook.")
+        } ?: throw PatchException("Could not find the method to hook.")
 
         BytecodeHelper.patchStatus(context, "GeneralAds")
-
-        return PatchResultSuccess()
     }
 
     private companion object {
@@ -89,7 +85,7 @@ class GeneralAdsBytecodePatch : BytecodePatch(
                 ) { it }
             })${reference.returnType}"
             is FieldReference -> "${reference.definingClass}->${reference.name}:${reference.type}"
-            else -> throw PatchResultError("Unsupported reference type")
+            else -> throw PatchException("Unsupported reference type")
         }
     }
 }

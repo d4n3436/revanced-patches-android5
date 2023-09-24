@@ -4,13 +4,11 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultSuccess
 import app.revanced.patches.youtube.misc.externalbrowser.bytecode.fingerprints.*
 import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
+import app.revanced.shared.extensions.exception
 import app.revanced.shared.util.integrations.Constants.MISC_PATH
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 
 @Name("enable-external-browser-bytecode-patch")
 @YouTubeCompatibility
@@ -21,14 +19,14 @@ class ExternalBrowserBytecodePatch : BytecodePatch(
         ExternalBrowserTertiaryFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
 
         arrayOf(
             ExternalBrowserPrimaryFingerprint,
             ExternalBrowserSecondaryFingerprint,
             ExternalBrowserTertiaryFingerprint
         ).forEach {
-            val result = it.result?: return it.toErrorResult()
+            val result = it.result?: throw it.exception
             val endIndex = result.scanResult.patternScanResult!!.endIndex
             with (result.mutableMethod) {
                 val register = (implementation!!.instructions[endIndex] as Instruction21c).registerA
@@ -40,7 +38,5 @@ class ExternalBrowserBytecodePatch : BytecodePatch(
                 )
             }
         }
-
-        return PatchResultSuccess()
     }
 }

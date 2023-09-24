@@ -1,28 +1,26 @@
 plugins {
-    kotlin("jvm") version "1.9.0"
+    kotlin("jvm") version "1.9.10"
 }
 
 group = "app.revanced"
 
-val githubUsername: String = project.findProperty("gpr.user") as? String ?: System.getenv("GITHUB_ACTOR")
-val githubPassword: String = project.findProperty("gpr.key") as? String ?: System.getenv("GITHUB_TOKEN")
-
 repositories {
     mavenCentral()
     mavenLocal()
+    google()
     maven {
         url = uri("https://maven.pkg.github.com/revanced/revanced-patcher")
         credentials {
-            username = githubUsername
-            password = githubPassword
+            username = project.findProperty("gpr.user") as? String ?: System.getenv("GITHUB_ACTOR")
+            password = project.findProperty("gpr.key") as? String ?: System.getenv("GITHUB_TOKEN")
         }
     }
 }
 
 dependencies {
-    implementation("app.revanced:revanced-patcher:11.0.1")
-    implementation("app.revanced:multidexlib2:2.5.3-a3836654")
-    // Required for meta
+    implementation("app.revanced:revanced-patcher:14.2.2")
+    implementation("com.android.tools.smali:smali:3.0.3")
+    // Used in JsonGenerator
     implementation("com.google.code.gson:gson:2.10.1")
 }
 
@@ -35,7 +33,7 @@ tasks {
             val androidHome = System.getenv("ANDROID_HOME") ?: throw GradleException("ANDROID_HOME not found")
             val d8 = "${androidHome}/build-tools/33.0.1/d8"
             val input = configurations.archives.get().allArtifacts.files.files.first().absolutePath
-            val work = File("${buildDir}/libs")
+            val work = layout.buildDirectory.dir("libs").get().asFile
 
             exec {
                 workingDir = work

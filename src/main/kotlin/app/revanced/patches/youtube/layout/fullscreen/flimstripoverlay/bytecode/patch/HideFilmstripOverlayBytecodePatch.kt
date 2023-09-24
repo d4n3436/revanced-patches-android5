@@ -5,17 +5,15 @@ import app.revanced.patcher.data.BytecodeContext
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructionsWithLabels
 import app.revanced.patcher.extensions.InstructionExtensions.removeInstruction
 import app.revanced.patcher.patch.BytecodePatch
-import app.revanced.patcher.patch.PatchResult
-import app.revanced.patcher.patch.PatchResultError
-import app.revanced.patcher.patch.PatchResultSuccess
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patches.youtube.layout.fullscreen.flimstripoverlay.bytecode.fingerprints.ScrubbingLabelFingerprint
 import app.revanced.shared.annotation.YouTubeCompatibility
-import app.revanced.shared.extensions.toErrorResult
+import app.revanced.shared.extensions.exception
 import app.revanced.shared.util.integrations.Constants.FULLSCREEN_LAYOUT
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.iface.instruction.ReferenceInstruction
-import org.jf.dexlib2.iface.instruction.TwoRegisterInstruction
-import org.jf.dexlib2.iface.reference.FieldReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 
 @Name("hide-filmstrip-overlay-bytecode-patch")
 @YouTubeCompatibility
@@ -24,7 +22,7 @@ class HideFilmstripOverlayBytecodePatch : BytecodePatch(
         ScrubbingLabelFingerprint
     )
 ) {
-    override fun execute(context: BytecodeContext): PatchResult {
+    override fun execute(context: BytecodeContext) {
         ScrubbingLabelFingerprint.result?.mutableMethod?.let {
             with (it.implementation!!.instructions) {
                 for ((index, instruction) in this.withIndex()) {
@@ -47,11 +45,11 @@ class HideFilmstripOverlayBytecodePatch : BytecodePatch(
 
                     it.removeInstruction(index)
 
-                    return PatchResultSuccess()
+                    return
                 }
             }
-        } ?: return ScrubbingLabelFingerprint.toErrorResult()
+        } ?: throw ScrubbingLabelFingerprint.exception
 
-        return PatchResultError("Could not find the method to hook.")
+        throw PatchException("Could not find the method to hook.")
     }
 }

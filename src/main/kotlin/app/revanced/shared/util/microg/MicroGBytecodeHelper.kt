@@ -5,18 +5,18 @@ import app.revanced.patcher.extensions.InstructionExtensions.addInstruction
 import app.revanced.patcher.extensions.InstructionExtensions.addInstructions
 import app.revanced.patcher.extensions.InstructionExtensions.replaceInstruction
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
-import app.revanced.patcher.patch.PatchResultError
+import app.revanced.patcher.patch.PatchException
 import app.revanced.patcher.util.proxy.mutableTypes.MutableClass
 import app.revanced.patcher.util.proxy.mutableTypes.MutableMethod
 import app.revanced.shared.util.microg.Constants.ACTIONS
 import app.revanced.shared.util.microg.Constants.AUTHORITIES
 import app.revanced.shared.util.microg.Constants.MICROG_VENDOR
 import app.revanced.shared.util.microg.Constants.PERMISSIONS
-import org.jf.dexlib2.Opcode
-import org.jf.dexlib2.builder.instruction.BuilderInstruction21c
-import org.jf.dexlib2.iface.instruction.formats.Instruction21c
-import org.jf.dexlib2.iface.reference.StringReference
-import org.jf.dexlib2.immutable.reference.ImmutableStringReference
+import com.android.tools.smali.dexlib2.Opcode
+import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21c
+import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
+import com.android.tools.smali.dexlib2.iface.reference.StringReference
+import com.android.tools.smali.dexlib2.immutable.reference.ImmutableStringReference
 
 /**
  * Helper class for applying bytecode patches needed for the microg-support patches.
@@ -219,7 +219,7 @@ internal object MicroGBytecodeHelper {
      */
     private fun List<MethodFingerprint>.returnEarly() {
         this.forEach { fingerprint ->
-            if (fingerprint.result == null) throw PatchResultError(fingerprint.toString())
+            if (fingerprint.result == null) throw PatchException(fingerprint.toString())
             val result = fingerprint.result!!
             val stringInstructions = when (result.method.returnType.first()) {
                 'L' -> """
