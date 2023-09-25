@@ -244,11 +244,18 @@ internal object ResourceHelper {
         context: ResourceContext,
         Preference: String
     ) {
-        val fragment = context["res/xml-v22/settings_fragment.xml"]
+        val fragment = context["res/xml/settings_fragment.xml"]
         fragment.writeText(
             fragment.readText()
             .replace("<!-- $Preference", "")
             .replace("$Preference -->", "")
+        )
+
+        val fragmentv22 = context["res/xml-v22/settings_fragment.xml"]
+        fragmentv22.writeText(
+            fragmentv22.readText()
+                .replace("<!-- $Preference", "")
+                .replace("$Preference -->", "")
         )
     }
 
