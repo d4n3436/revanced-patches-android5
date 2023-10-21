@@ -16,12 +16,12 @@ Around half of the patches currently work.
 
 - Patch with the following command (file names changed for brevity):
 ```
-java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.160.8.jar -m revanced-integrations-0.96.6.apk -i microg-support -i spoof-player-parameters -i client-spoof -i hide-video-ads -i enable-minimized-playback -i disable-update-screen --exclusive
+java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.160.9.jar -m revanced-integrations-0.96.6.apk -i microg-support -i spoof-player-parameters -i client-spoof -i hide-video-ads -i enable-minimized-playback -i disable-update-screen --exclusive
 ```
 
 - Or patch with all the supported patches (ignore the errors):
 ```
-java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.160.8.jar -m revanced-integrations-0.96.6.apk -e custom-seekbar-color -e optimize-resource
+java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.160.9.jar -m revanced-integrations-0.96.6.apk -e custom-seekbar-color -e optimize-resource
 ```
 
 Refer to the original [repository](https://github.com/kitadai31/revanced-patches-android6-7) for more info.
