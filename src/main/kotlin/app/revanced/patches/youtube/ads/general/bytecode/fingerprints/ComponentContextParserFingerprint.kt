@@ -14,7 +14,7 @@ object ComponentContextParserFingerprint : MethodFingerprint(
         Opcode.CONST_16,
         Opcode.INVOKE_VIRTUAL,
         Opcode.IPUT_OBJECT,
-        Opcode.NEW_INSTANCE
+        Opcode.INVOKE_VIRTUAL_RANGE
     ),
     strings = listOf("LoggingProperties are not in proto format")
 )

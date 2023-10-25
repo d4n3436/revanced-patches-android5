@@ -25,9 +25,7 @@ class GeneralAdsSecondaryBytecodePatch : BytecodePatch() {
         "id" to "ad_attribution",
         "layout" to "horizontal_card_list",
         "layout" to "album_card",
-        "id" to "reel_player_badge",
-        "id" to "reel_player_badge2",
-        "id" to "reel_player_info_panel"
+        "id" to "reel_player_badge"
     ).map { (type, name) ->
         ResourceMappingPatch
             .resourceMappings
@@ -79,7 +77,7 @@ class GeneralAdsSecondaryBytecodePatch : BytecodePatch() {
                                         patchSuccessArray[2] = true;
                                     }
 
-                                    resourceIds[3], resourceIds[4] -> { // paid content banner
+                                    resourceIds[3] -> { // paid content banner
                                         val insertIndex = index + 3
                                         val invokeInstruction = instructions.elementAt(insertIndex)
                                         if (invokeInstruction.opcode != Opcode.CHECK_CAST) return@forEachIndexed
@@ -91,21 +89,6 @@ class GeneralAdsSecondaryBytecodePatch : BytecodePatch() {
                                         mutableMethod.addInjectCall(insertIndex, dummyRegister, viewRegister, "hidePaidContentBanner")
 
                                         patchSuccessArray[3] = true;
-                                        patchSuccessArray[4] = true;
-                                    }
-
-                                    resourceIds[5] -> { // info panel
-                                        val insertIndex = index + 3
-                                        val invokeInstruction = instructions.elementAt(insertIndex)
-                                        if (invokeInstruction.opcode != Opcode.CHECK_CAST) return@forEachIndexed
-
-                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
-                                        val dummyRegister = (instructions.elementAt(index) as Instruction31i).registerA
-                                        val viewRegister = (invokeInstruction as Instruction21c).registerA
-
-                                        mutableMethod.addInjectCall(insertIndex + 7, dummyRegister, viewRegister, "hideInfoPanel")
-
-                                        patchSuccessArray[5] = true;
                                     }
                                 }
                             }

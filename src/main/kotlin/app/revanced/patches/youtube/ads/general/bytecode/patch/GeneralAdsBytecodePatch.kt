@@ -20,7 +20,7 @@ import com.android.tools.smali.dexlib2.builder.instruction.BuilderInstruction21s
 import com.android.tools.smali.dexlib2.iface.instruction.Instruction
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -44,15 +44,8 @@ class GeneralAdsBytecodePatch : BytecodePatch(
                     (it as BuilderInstruction21s).narrowLiteral == 124
                 } + 3
 
-                val stringBuilderRegister = (getInstruction(insertHookIndex) as OneRegisterInstruction).registerA
-                val clobberedRegister = (getInstruction(insertHookIndex - 3) as OneRegisterInstruction).registerA
-
-                val bufferIndex = implementation!!.instructions.indexOfFirst {
-                    it.opcode == Opcode.CONST &&
-                    (it as Instruction31i).narrowLiteral == 183314536
-                } - 1
-
-                val bufferRegister = (getInstruction(bufferIndex) as OneRegisterInstruction).registerA
+                val stringBuilderRegister = getInstruction<TwoRegisterInstruction>(insertHookIndex - 1).registerA
+                val clobberedRegister = getInstruction<OneRegisterInstruction>(insertHookIndex - 3).registerA
 
                 val builderMethodDescriptor = getInstruction(builderMethodIndex).toDescriptor()
                 val emptyComponentFieldDescriptor = getInstruction(emptyComponentFieldIndex).toDescriptor()
@@ -60,14 +53,14 @@ class GeneralAdsBytecodePatch : BytecodePatch(
                 addInstructionsWithLabels(
                     insertHookIndex, // right after setting the component.pathBuilder field,
                     """
-                        invoke-static {v$stringBuilderRegister, v$bufferRegister}, $ADS_PATH/LithoFilterPatch;->filter(Ljava/lang/StringBuilder;Ljava/lang/String;)Z
+                        invoke-static {v$stringBuilderRegister}, $ADS_PATH/LithoFilterPatch;->filter(Ljava/lang/StringBuilder;)Z
                         move-result v$clobberedRegister
                         if-eqz v$clobberedRegister, :not_an_ad
-                        move-object/from16 v$bufferRegister, p1
-                        invoke-static {v$bufferRegister}, $builderMethodDescriptor
-                        move-result-object v0
-                        iget-object v0, v0, $emptyComponentFieldDescriptor
-                        return-object v0
+                        move-object/from16 v$stringBuilderRegister, p1
+                        invoke-static {v$stringBuilderRegister}, $builderMethodDescriptor
+                        move-result-object v$clobberedRegister
+                        iget-object v$clobberedRegister, v$clobberedRegister, $emptyComponentFieldDescriptor
+                        return-object v$clobberedRegister
                     """,
                     ExternalLabel("not_an_ad", getInstruction(insertHookIndex))
                 )
