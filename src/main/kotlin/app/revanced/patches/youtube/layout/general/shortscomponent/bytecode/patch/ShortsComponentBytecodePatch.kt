@@ -12,7 +12,6 @@ import app.revanced.shared.patches.mapping.ResourceMappingPatch
 import app.revanced.shared.util.bytecode.BytecodeHelper
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction31i
 
 @Name("hide-shorts-component-bytecode-patch")
@@ -22,9 +21,7 @@ class ShortsComponentBytecodePatch : BytecodePatch() {
 
     // list of resource names to get the id of
     private val resourceIds = arrayOf(
-        "ic_right_comment_32c",
-        "reel_dyn_remix",
-        "reel_player_paused_state_buttons"
+        "ic_right_comment_32c"
     ).map { name ->
         ResourceMappingPatch.resourceMappings.single { it.name == name }.id
     }
@@ -49,32 +46,6 @@ class ShortsComponentBytecodePatch : BytecodePatch() {
                                         mutableMethod.implementation!!.injectHideCall(index + 4, viewRegister, "layout/GeneralLayoutPatch", "hideShortsPlayerCommentsButton")
 
                                         patchSuccessArray[0] = true;
-                                    }
-
-                                    resourceIds[1] -> { // shorts player remix
-                                        val insertIndex = index - 2
-                                        val invokeInstruction = instructions.elementAt(insertIndex)
-                                        if (invokeInstruction.opcode != Opcode.CHECK_CAST) return@forEachIndexed
-
-                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
-
-                                        val viewRegister = (invokeInstruction as Instruction21c).registerA
-                                        mutableMethod.implementation!!.injectHideCall(index - 1, viewRegister, "layout/GeneralLayoutPatch", "hideShortsPlayerRemixButton")
-
-                                        patchSuccessArray[1] = true;
-                                    }
-
-                                    resourceIds[2] -> { // shorts player subscriptions banner
-                                        val insertIndex = index + 3
-                                        val invokeInstruction = instructions.elementAt(insertIndex)
-                                        if (invokeInstruction.opcode != Opcode.CHECK_CAST) return@forEachIndexed
-
-                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
-
-                                        val viewRegister = (invokeInstruction as Instruction21c).registerA
-                                        mutableMethod.implementation!!.injectHideCall(insertIndex, viewRegister, "layout/GeneralLayoutPatch", "hideShortsPlayerSubscriptionsButton")
-
-                                        patchSuccessArray[2] = true;
                                     }
                                 }
                             }

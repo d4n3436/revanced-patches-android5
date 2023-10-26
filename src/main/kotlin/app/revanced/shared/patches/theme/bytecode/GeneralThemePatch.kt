@@ -25,8 +25,8 @@ class GeneralThemePatch : BytecodePatch(
 
         method.addInstructions(
             patchIndex, """
-                invoke-static {p1}, $UTILS_PATH/LithoThemePatch;->applyLithoTheme(I)I
-                move-result p1
+                invoke-static {v0}, $UTILS_PATH/LithoThemePatch;->applyLithoTheme(I)I
+                move-result v0
             """
         )
     }

@@ -23,6 +23,7 @@ object LithoThemeFingerprint : MethodFingerprint(
         Opcode.MOVE_RESULT,
         Opcode.IF_NEZ,
         Opcode.IGET_OBJECT,
+        Opcode.IGET,
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
     )

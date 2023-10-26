@@ -10,10 +10,12 @@ object RepeatListenerFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     opcodes = listOf(
         Opcode.INVOKE_VIRTUAL_RANGE,
+        Opcode.IF_EQZ,
+        Opcode.IF_EQZ,
         Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.CONST_WIDE_32
+        Opcode.CONST_4,
+        Opcode.IPUT_BOOLEAN,
+        Opcode.GOTO
     ),
     strings = listOf(
         "ppoobsa"
