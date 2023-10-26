@@ -19,7 +19,7 @@ import org.w3c.dom.Element
 @YouTubeCompatibility
 class PlayerButtonOverlayPatch : ResourcePatch {
     private companion object {
-        const val RESOURCE_FILE_PATH = "res/drawable/player_button_circle_background.xml"
+        const val RESOURCE_FILE_PATH = "res/drawable/player_button_background.xml"
 
         val replacements = arrayOf(
             "color"

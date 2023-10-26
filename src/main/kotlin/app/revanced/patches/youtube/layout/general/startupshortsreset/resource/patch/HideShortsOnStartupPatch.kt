@@ -5,13 +5,12 @@ import app.revanced.patcher.annotation.Name
 import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
-import app.revanced.patcher.patch.annotations.Patch
 import app.revanced.patches.youtube.layout.general.startupshortsreset.bytecode.patch.HideShortsOnStartupBytecodePatch
 import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.resources.ResourceHelper
 
-@Patch
+// Not available on 16.40.36
 @Name("hide-startup-shorts-player")
 @Description("Disables playing YouTube Shorts when launching YouTube.")
 @DependsOn(

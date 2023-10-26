@@ -13,7 +13,6 @@ import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.extensions.exception
 import app.revanced.shared.util.integrations.Constants.UTILS_PATH
 import app.revanced.shared.util.integrations.Constants.VIDEO_PATH
-import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 
 @Name("always-autorepeat")
 @YouTubeCompatibility
@@ -41,12 +40,11 @@ class AutoRepeatPatch : BytecodePatch(
 
         AutoNavInformerFingerprint.result?.mutableMethod?.let {
             with (it.implementation!!.instructions) {
-                val index = this.size - 1 - 1
-                val register = (this[index] as OneRegisterInstruction).registerA
+                val index = this.size - 1
                 it.addInstructions(
-                    index + 1, """
-                    invoke-static {v$register}, $UTILS_PATH/EnableAutoRepeatPatch;->enableAutoRepeat(Z)Z
-                    move-result v0
+                    index, """
+                    invoke-static {p1}, $UTILS_PATH/EnableAutoRepeatPatch;->enableAutoRepeat(Z)Z
+                    move-result p1
                 """
                 )
 
