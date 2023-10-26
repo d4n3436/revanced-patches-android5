@@ -20,7 +20,7 @@ class UpdateScreenPatch : ResourcePatch {
 
         ResourceHelper.patchSuccess(
             context,
-            "disable-new-version"
+            "disable-update-screen"
         )
     }
 }
