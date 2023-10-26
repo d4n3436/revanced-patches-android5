@@ -12,7 +12,7 @@ Around half of the patches currently work.
   - [YouTube APK](https://www.apkmirror.com/apk/google-inc/youtube/youtube-16-40-36-release/youtube-16-40-36-android-apk-download/)
   - [revanced-integrations for Android 5](https://github.com/d4n3436/revanced-integrations/releases)
   - Zulu OpenJDK 17
-  - [revanced-cli](https://github.com/revanced/revanced-cli/releases/latest)
+  - [revanced-cli v3.1.1](https://github.com/ReVanced/revanced-cli/releases/tag/v3.1.1)
 
 - Patch with the following command (file names changed for brevity):
 ```
