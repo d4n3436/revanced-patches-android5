@@ -13,6 +13,7 @@ import app.revanced.shared.patches.mapping.ResourceMappingPatch
 class SharedResourcdIdPatch : ResourcePatch {
     internal companion object {
         var inVideoProgrammingOverlayId: Long = -1
+        var playerHeadingViewContainerId: Long = -1
         var abclistmenuitemLabelId: Long = -1
         var accessibilityProgressTimeLabelId: Long = -1
         var accountSwitcherAccessibilityLabelId: Long = -1
@@ -42,6 +43,7 @@ class SharedResourcdIdPatch : ResourcePatch {
             .single { it.type == type && it.name == name }.id
 
         inVideoProgrammingOverlayId = findSharedResourceId("layout", "youtube_invideo_programming_overlay")
+        playerHeadingViewContainerId = findSharedResourceId("layout", "player_heading_view_container")
         abclistmenuitemLabelId = findSharedResourceId("layout", "abc_list_menu_item_layout")
         accessibilityProgressTimeLabelId = findSharedResourceId("string", "accessibility_player_progress_time")
         accountSwitcherAccessibilityLabelId = findSharedResourceId("string", "account_switcher_accessibility_label")

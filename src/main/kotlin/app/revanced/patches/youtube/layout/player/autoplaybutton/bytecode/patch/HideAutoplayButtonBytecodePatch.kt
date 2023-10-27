@@ -46,8 +46,8 @@ class HideAutoplayButtonBytecodePatch : BytecodePatch(
                 method.addInstructionsWithLabels(
                     insertIndex, """
                         invoke-static {}, $PLAYER_LAYOUT->hideAutoPlayButton()Z
-                        move-result v15
-                        if-nez v15, :hidden
+                        move-result v14
+                        if-nez v14, :hidden
                     """, ExternalLabel("hidden", jumpInstruction)
                 )
             }

@@ -52,8 +52,8 @@ class HideFullscreenPanelsBytecodePatch : BytecodePatch(
             method.addInstructionsWithLabels(
                 invokeIndex, """
                     invoke-static {}, $FULLSCREEN_LAYOUT->hideFullscreenPanel()Z
-                    move-result v15
-                    if-nez v15, :hidden
+                    move-result v14
+                    if-nez v14, :hidden
                 """, ExternalLabel("hidden", method.getInstruction(invokeIndex + 1))
             )
         } ?: throw LayoutConstructorFingerprint.exception

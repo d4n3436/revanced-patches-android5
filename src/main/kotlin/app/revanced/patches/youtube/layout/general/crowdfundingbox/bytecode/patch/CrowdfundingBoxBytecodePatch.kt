@@ -35,7 +35,7 @@ class CrowdfundingBoxBytecodePatch : BytecodePatch() {
                             Opcode.CONST -> {
                                 when ((instruction as Instruction31i).wideLiteral) {
                                     resourceIds[0] -> { // crowdfunding
-                                        val insertIndex = index + 3
+                                        val insertIndex = index + 5
                                         val iPutInstruction = instructions.elementAt(insertIndex)
                                         if (iPutInstruction.opcode != Opcode.IPUT_OBJECT) return@forEachIndexed
 
