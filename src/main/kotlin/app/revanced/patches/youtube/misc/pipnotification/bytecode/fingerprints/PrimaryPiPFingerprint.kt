@@ -10,12 +10,11 @@ object PrimaryPiPFingerprint : MethodFingerprint(
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
     parameters = listOf("L"),
     opcodes = listOf(
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.CONST_4,
+        Opcode.IPUT_BOOLEAN,
         Opcode.IGET_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_VIRTUAL,
-        Opcode.IPUT_BOOLEAN
+        Opcode.IF_NEZ
     ),
     strings = listOf("honeycomb.Shell\$HomeActivity")
 )

@@ -12,19 +12,17 @@ import app.revanced.shared.extensions.exception
 @YouTubeCompatibility
 class PiPNotificationBytecodePatch : BytecodePatch(
     listOf(
-        PrimaryPiPFingerprint,
-        SecondaryPiPFingerprint
+        PrimaryPiPFingerprint
     )
 ) {
     override fun execute(context: BytecodeContext) {
 
         arrayOf(
-            PrimaryPiPFingerprint,
-            SecondaryPiPFingerprint
+            PrimaryPiPFingerprint
         ).map {
             it.result ?: throw it.exception
         }.forEach {
-            val index = it.scanResult.patternScanResult!!.startIndex + 1
+            val index = it.scanResult.patternScanResult!!.startIndex
             it.mutableMethod.addInstruction(index, "return-void")
         }
     }

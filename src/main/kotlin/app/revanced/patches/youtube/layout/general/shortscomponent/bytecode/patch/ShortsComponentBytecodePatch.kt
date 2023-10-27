@@ -36,7 +36,7 @@ class ShortsComponentBytecodePatch : BytecodePatch() {
                             Opcode.CONST -> {
                                 when ((instruction as Instruction31i).wideLiteral) {
                                     resourceIds[0] -> { // shorts player comment
-                                        val insertIndex = index - 2
+                                        val insertIndex = index - 3
                                         val invokeInstruction = instructions.elementAt(insertIndex)
                                         if (invokeInstruction.opcode != Opcode.CONST_HIGH16) return@forEachIndexed
 
