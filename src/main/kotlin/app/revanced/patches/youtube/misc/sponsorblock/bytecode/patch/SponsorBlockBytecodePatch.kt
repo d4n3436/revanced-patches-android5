@@ -122,7 +122,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         // set SegmentHelperLayout.context to the player layout instance
         val instanceRegister = 0
         NextGenWatchLayoutFingerprint.result!!.mutableMethod.addInstruction(
-            3, // after super call
+            1, // after super call
             "invoke-static/range {p$instanceRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->addSkipSponsorView15(Landroid/view/View;)V"
         )
 

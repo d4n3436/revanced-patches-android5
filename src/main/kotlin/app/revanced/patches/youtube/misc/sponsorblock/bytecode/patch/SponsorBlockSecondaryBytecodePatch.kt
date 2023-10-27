@@ -55,7 +55,7 @@ class SponsorBlockSecondaryBytecodePatch : BytecodePatch() {
                                     }
 
                                     resourceIds[1] -> { // player overlay
-                                        val insertIndex = index + 4
+                                        val insertIndex = index + 3
                                         val invokeInstruction = instructions.elementAt(insertIndex)
                                         if (invokeInstruction.opcode != Opcode.CHECK_CAST) return@forEachIndexed
 
@@ -63,7 +63,7 @@ class SponsorBlockSecondaryBytecodePatch : BytecodePatch() {
 
                                         mutableMethod.addInstruction(
                                             insertIndex,
-                                                "invoke-static {p0}, Lapp/revanced/integrations/sponsorblock/player/ui/SponsorBlockView;->initialize(Ljava/lang/Object;)V"
+                                                "invoke-static {v2}, Lapp/revanced/integrations/sponsorblock/player/ui/SponsorBlockView;->initialize(Ljava/lang/Object;)V"
                                         )
 
                                         patchSuccessArray[1] = true;
