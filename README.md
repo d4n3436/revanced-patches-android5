@@ -25,8 +25,3 @@ java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.
 ```
 
 Refer to the original [repository](https://github.com/kitadai31/revanced-patches-android6-7) for more info.
-
-### Note
-I won't improve support for the remaining patches as I don't have any incentives to do so. I don't have any Android 5 device and I only modified the patches for testing.
-
-I will, however, maintain the spoof patches and update them to keep the app working.
