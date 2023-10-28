@@ -32,14 +32,10 @@ class VideoQualityBytecodePatch : BytecodePatch(
                 val qualityFieldReference =
                     (instructions.elementAt(0) as ReferenceInstruction).reference as FieldReference
 
-                val qIndexMethodName =
-                    context.classes.single { it.type == qualityFieldReference.type }.methods.single { it.parameterTypes.first() == "I" }.name
-
                 parentResult.mutableMethod.addInstructions(
                     0, """
                         iget-object v0, p0, ${result.classDef.type}->${qualityFieldReference.name}:${qualityFieldReference.type}
-                        const-string v1, "$qIndexMethodName"
-                        invoke-static {p1, p2, v0, v1}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->setVideoQuality([Ljava/lang/Object;ILjava/lang/Object;Ljava/lang/String;)I
+                        invoke-static {p1, p2, v0}, $INTEGRATIONS_VIDEO_QUALITY_CLASS_DESCRIPTOR->setVideoQuality([Ljava/lang/Object;ILjava/lang/Object;)I
                         move-result p2
                     """,
                 )
