@@ -12,7 +12,8 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.resources.ResourceHelper
 
-@Patch
+// TODO: Fix (16.40.36)
+//@Patch
 @Name("hide-mix-playlists")
 @Description("Removes mix playlists from home feed and video player.")
 @DependsOn(

@@ -11,7 +11,8 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.resources.ResourceHelper
 
-@Patch
+// TODO: Fix (16.40.36)
+//@Patch
 @Name("enable-seekbar-tapping")
 @Description("Enables tap-to-seek on the seekbar of the video player.")
 @DependsOn(

@@ -11,7 +11,8 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.resources.ResourceHelper
 
-@Patch
+// TODO: Fix (16.40.36)
+//@Patch
 @Name("custom-seekbar-color")
 @Description("Change seekbar color in dark mode.")
 @DependsOn(
