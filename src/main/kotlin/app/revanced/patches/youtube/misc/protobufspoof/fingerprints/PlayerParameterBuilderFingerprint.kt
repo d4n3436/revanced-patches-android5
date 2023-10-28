@@ -17,17 +17,14 @@ object PlayerParameterBuilderFingerprint : MethodFingerprint(
         "I",
         "Ljava/util/Set;",
         "Ljava/lang/String;",
-        //"Ljava/lang/String;",
         "L",
-        "Z",
-        "Z",
-        //"Z"
+        "Z"
     ),
     opcodes = listOf(
-        Opcode.INVOKE_INTERFACE,
-        Opcode.MOVE_RESULT_OBJECT,
-        Opcode.CHECK_CAST,
-        Opcode.INVOKE_INTERFACE
+        Opcode.NEW_INSTANCE,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_DIRECT,
+        Opcode.INVOKE_VIRTUAL
     ),
     customFingerprint = { methodDef, _ ->
         methodDef.name == "b"

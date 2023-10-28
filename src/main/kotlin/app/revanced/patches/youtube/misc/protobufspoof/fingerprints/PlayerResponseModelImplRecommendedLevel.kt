@@ -7,17 +7,19 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 object PlayerResponseModelImplRecommendedLevel : MethodFingerprint(
-    returnType = "I",
+    returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = emptyList(),
+    parameters = listOf("L"),
     opcodes = listOf(
         Opcode.SGET_OBJECT,
         Opcode.IGET,
-        Opcode.RETURN
+        Opcode.CONST,
+        Opcode.IF_NE,
+        Opcode.IGET_OBJECT,
+        Opcode.CHECK_CAST,
+        Opcode.GOTO,
+        Opcode.SGET_OBJECT,
+        Opcode.IGET
     ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("/PlayerResponseModelImpl;") && methodDef.isWideLiteralExists(
-            55735497
-        )
-    }
+    customFingerprint = { methodDef, _ -> methodDef.isWideLiteralExists(55735497) }
 )

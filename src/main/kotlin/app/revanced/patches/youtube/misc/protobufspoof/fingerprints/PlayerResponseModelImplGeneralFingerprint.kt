@@ -7,17 +7,25 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 object PlayerResponseModelImplGeneralFingerprint : MethodFingerprint(
-    returnType = "Ljava/lang/String;",
+    returnType = "V",
     accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
-    parameters = emptyList(),
+    parameters = listOf("L"),
     opcodes = listOf(
-        Opcode.RETURN_OBJECT,
+        Opcode.CONST,
         Opcode.CONST_4,
-        Opcode.RETURN_OBJECT
-    ),
-    customFingerprint = { methodDef, _ ->
-        methodDef.definingClass.endsWith("/PlayerResponseModelImpl;") && methodDef.isWideLiteralExists(
-            55735497
-        )
-    }
+        Opcode.IF_NE,
+        Opcode.IGET_OBJECT,
+        Opcode.IGET_OBJECT,
+        Opcode.IF_NEZ,
+        Opcode.SGET_OBJECT,
+        Opcode.IGET,
+        Opcode.IF_NE,
+        Opcode.IGET_OBJECT,
+        Opcode.CHECK_CAST,
+        Opcode.GOTO,
+        Opcode.SGET_OBJECT,
+        Opcode.IGET_OBJECT,
+        Opcode.GOTO,
+        Opcode.MOVE_OBJECT
+    )
 )

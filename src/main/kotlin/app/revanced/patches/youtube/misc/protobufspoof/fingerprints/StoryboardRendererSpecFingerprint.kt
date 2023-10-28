@@ -6,9 +6,18 @@ import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
 
 object StoryboardRendererSpecFingerprint : MethodFingerprint(
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
-    returnType = "L",
-    parameters = listOf("Ljava/lang/String;", "J"),
-    opcodes = listOf(Opcode.IF_EQZ),
+    accessFlags = AccessFlags.PUBLIC or AccessFlags.FINAL,
+    returnType = "V",
+    parameters = listOf("L"),
+    opcodes = listOf(
+        Opcode.MOVE_RESULT_OBJECT,
+        Opcode.INVOKE_DIRECT,
+        Opcode.MOVE_OBJECT,
+        Opcode.IPUT_OBJECT,
+        Opcode.GOTO,
+        Opcode.MUL_INT_LIT16,
+        Opcode.INT_TO_LONG,
+        Opcode.IF_EQZ
+    ),
     strings = listOf("\\|"),
 )

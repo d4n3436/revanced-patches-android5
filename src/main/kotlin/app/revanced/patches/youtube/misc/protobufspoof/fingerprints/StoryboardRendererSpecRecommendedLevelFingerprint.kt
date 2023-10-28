@@ -6,10 +6,10 @@ import com.android.tools.smali.dexlib2.Opcode
 object StoryboardRendererSpecRecommendedLevelFingerprint : MethodFingerprint(
     strings = listOf("#-1#"),
     opcodes = listOf(
-        Opcode.IPUT_BOOLEAN,
         Opcode.IGET_OBJECT,
-        Opcode.IGET_OBJECT,
-        Opcode.INVOKE_INTERFACE_RANGE,
-        Opcode.MOVE_RESULT
+        Opcode.CHECK_CAST,
+        Opcode.GOTO,
+        Opcode.SGET_OBJECT,
+        Opcode.IGET
     )
 )

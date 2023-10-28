@@ -15,6 +15,7 @@ import app.revanced.patches.youtube.misc.protobufpoof.fingerprints.PlayerParamet
 import app.revanced.patches.youtube.misc.protobufspoof.fingerprints.PlayerResponseModelImplGeneralFingerprint
 import app.revanced.patches.youtube.misc.protobufspoof.fingerprints.PlayerResponseModelImplLiveStreamFingerprint
 import app.revanced.patches.youtube.misc.protobufspoof.fingerprints.PlayerResponseModelImplRecommendedLevel
+import app.revanced.patches.youtube.misc.protobufspoof.fingerprints.PlayerResponseModelMethodFingerprint
 import app.revanced.patches.youtube.misc.protobufspoof.fingerprints.StoryboardRendererSpecFingerprint
 import app.revanced.patches.youtube.misc.protobufspoof.fingerprints.StoryboardRendererSpecRecommendedLevelFingerprint
 import app.revanced.patches.youtube.misc.protobufspoof.fingerprints.StoryboardThumbnailFingerprint
@@ -24,6 +25,7 @@ import app.revanced.shared.extensions.exception
 import app.revanced.shared.util.integrations.Constants.MISC_PATH
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 
 @Name("spoof-player-parameters-bytecode-patch")
 @DependsOn([PlayerTypeHookPatch::class])
@@ -40,6 +42,10 @@ class SpoofPlayerParameterBytecodePatch : BytecodePatch(
     )
 ) {
     override fun execute(context: BytecodeContext) {
+
+        var playerResponseClass = StoryboardThumbnailParentFingerprint.result?.classDef ?: throw StoryboardThumbnailParentFingerprint.exception
+        var playerResponseModelMethod = PlayerResponseModelMethodFingerprint.also { it.resolve(context, playerResponseClass) }.result?.method
+            ?: throw PlayerResponseModelMethodFingerprint.exception
 
         /**
          * Hook player parameter
@@ -91,53 +97,69 @@ class SpoofPlayerParameterBytecodePatch : BytecodePatch(
         /**
          * Hook StoryBoard Renderer URL
          */
+
+        var offset = 0;
+
         arrayOf(
-            PlayerResponseModelImplGeneralFingerprint,
-            PlayerResponseModelImplLiveStreamFingerprint,
-            StoryboardRendererSpecFingerprint
-        ).forEach { fingerprint ->
-            fingerprint.result?.let {
+            PlayerResponseModelImplGeneralFingerprint to 1,
+            PlayerResponseModelImplLiveStreamFingerprint to 1,
+            StoryboardRendererSpecFingerprint to 0
+        ).map { (fingerprint, increment) ->
+            fingerprint.also {
+                it.resolve(context, playerResponseModelMethod, playerResponseClass)
+            }.result?.let {
                 it.mutableMethod.apply {
-                    val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex
+                    val getStoryBoardIndex = it.scanResult.patternScanResult!!.endIndex + offset
+                    offset += 3
                     val getStoryBoardRegister =
-                        getInstruction<OneRegisterInstruction>(getStoryBoardIndex).registerA
+                        (getInstruction(getStoryBoardIndex) as OneRegisterInstruction?)?.registerA
+                            ?: getInstruction<TwoRegisterInstruction>(getStoryBoardIndex).registerA
 
                     addInstructionsWithLabels(
-                        getStoryBoardIndex, """
+                        getStoryBoardIndex + increment, """
                             if-nez v$getStoryBoardRegister, :ignore
                             invoke-static {}, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec()Ljava/lang/String;
                             move-result-object v$getStoryBoardRegister
-                            """, ExternalLabel("ignore", getInstruction(getStoryBoardIndex))
+                            """, ExternalLabel("ignore", getInstruction(getStoryBoardIndex + increment))
                     )
-                }
-            } ?: throw fingerprint.exception
+                } ?: throw fingerprint.exception
+            }
         }
 
         /**
          * Hook recommended value and StoryBoard Renderer for live stream
          */
-        StoryboardRendererSpecRecommendedLevelFingerprint.result?.let {
+
+        StoryboardRendererSpecRecommendedLevelFingerprint.also {
+            it.resolve(context, playerResponseModelMethod, playerResponseClass)
+        }.result?.let {
             it.mutableMethod.apply {
-                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+                /*
+                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex + 9
                 val originalValueRegister =
-                    getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+                    getInstruction<TwoRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+                */
 
-                val liveStreamStoryBoardUrlIndex =
+                val liveStreamStoryBoardUrlHookIndex =
                     implementation!!.instructions.indexOfFirst { instruction ->
-                        instruction.opcode == Opcode.INVOKE_INTERFACE_RANGE  //Changed point for 17.34.36
-                    } + 1
-                val liveStreamStoryBoardUrlRegister =
-                    getInstruction<OneRegisterInstruction>(liveStreamStoryBoardUrlIndex).registerA
+                        instruction.opcode == Opcode.INVOKE_VIRTUAL_RANGE  //Changed point for 16.40.36
+                    } + 2 // inside the if scope
+                offset += 2;
 
+                // string register
+                val liveStreamStoryBoardUrlRegister =
+                    getInstruction<OneRegisterInstruction>(liveStreamStoryBoardUrlHookIndex - 6).registerA
+                /*
                 addInstructions(
                     moveOriginalRecommendedValueIndex + 1, """
                         invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
                         move-result v$originalValueRegister
                         """
                 )
+                */
 
                 addInstructions(
-                    liveStreamStoryBoardUrlIndex + 1, """
+                    liveStreamStoryBoardUrlHookIndex, """
                         invoke-static { v$liveStreamStoryBoardUrlRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getStoryboardRendererSpec(Ljava/lang/String;)Ljava/lang/String;
                         move-result-object v$liveStreamStoryBoardUrlRegister
                         """
@@ -145,14 +167,17 @@ class SpoofPlayerParameterBytecodePatch : BytecodePatch(
             }
         } ?: throw StoryboardRendererSpecRecommendedLevelFingerprint.exception
 
-        PlayerResponseModelImplRecommendedLevel.result?.let {
+
+        PlayerResponseModelImplRecommendedLevel.also {
+            it.resolve(context, playerResponseModelMethod, playerResponseClass)
+        }.result?.let {
             it.mutableMethod.apply {
-                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex
+                val moveOriginalRecommendedValueIndex = it.scanResult.patternScanResult!!.endIndex + offset
                 val originalValueRegister =
-                    getInstruction<OneRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
+                    getInstruction<TwoRegisterInstruction>(moveOriginalRecommendedValueIndex).registerA
 
                 addInstructions(
-                    moveOriginalRecommendedValueIndex, """
+                    moveOriginalRecommendedValueIndex + 1, """
                         invoke-static { v$originalValueRegister }, $INTEGRATIONS_CLASS_DESCRIPTOR->getRecommendedLevel(I)I
                         move-result v$originalValueRegister
                         """
