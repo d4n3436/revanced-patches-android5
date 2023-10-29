@@ -15,7 +15,8 @@ import app.revanced.shared.util.resources.ResourceUtils
 import app.revanced.shared.util.resources.ResourceUtils.copyResources
 import app.revanced.shared.util.resources.ResourceUtils.copyXmlNode
 
-@Patch
+// TODO: Fix (16.40.36) and include by default
+@Patch(false)
 @Name("sponsorblock")
 @Description("Integrates SponsorBlock which allows skipping video segments such as sponsored content.")
 @DependsOn(
