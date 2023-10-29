@@ -256,7 +256,7 @@
     <string name="revanced_enable_vp9_codec_title">VP9 코덱 활성화하기</string>
     <string name="revanced_experimental_flag">실험적 기능</string>
     <string name="revanced_extended_issue_center_summary">버그 신고 또는 기능 제안은 이곳을 방문해주세요.</string>
-    <string name="revanced_extended_issue_center_title">RVX for Android 6.0-7.1 Report Center</string>
+    <string name="revanced_extended_issue_center_title">RVX for Android 5 Report Center</string>
     <string name="revanced_extended_settings">ReVanced Extended 설정</string>
     <string name="revanced_extended_summary">Extended 관련 설정입니다.</string>
     <string name="revanced_extended_title">Extended 설정</string>

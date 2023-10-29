@@ -256,7 +256,7 @@
     <string name="revanced_enable_vp9_codec_title">Activar códec VP9</string>
     <string name="revanced_experimental_flag">Funciones experimentales</string>
     <string name="revanced_extended_issue_center_summary">Informe problemas o deje sugerencias aquí</string>
-    <string name="revanced_extended_issue_center_title">Centro de problemas de RVX for Android 6.0-7.1</string>
+    <string name="revanced_extended_issue_center_title">Centro de problemas de RVX for Android 5</string>
     <string name="revanced_extended_settings">Ajustes de ReVanced Extended</string>
     <string name="revanced_extended_summary">Ajustes relacionados con Extended</string>
     <string name="revanced_extended_title">Ajustes de Extended</string>

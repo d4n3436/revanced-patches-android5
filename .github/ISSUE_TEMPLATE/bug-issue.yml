@@ -8,7 +8,7 @@ body:
       value: |
         # ReVanced bug report
 
-        Important to note that your issue may have already been reported before. Please check for existing issues [here](https://github.com/kitadai31/revanced-patches-android6-7/labels/bug).
+        Important to note that your issue may have already been reported before. Please check for existing issues [here](https://github.com/d4n3436/revanced-patches-android5/labels/bug).
 
   - type: dropdown
     attributes:
@@ -63,7 +63,7 @@ body:
     attributes:
       label: Device Environment
       description: Add your device environment.
-      placeholder: Android 7.1, MIUI 14 ...
+      placeholder: Android 5.1, TouchWiz...
     validations:
       required: true
   - type: checkboxes

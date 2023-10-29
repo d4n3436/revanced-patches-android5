@@ -253,7 +253,7 @@
     <string name="revanced_enable_vp9_codec_title">VP9 编码</string>
     <string name="revanced_experimental_flag">实验性功能</string>
     <string name="revanced_extended_issue_center_summary">在此报告问题或留下建议</string>
-    <string name="revanced_extended_issue_center_title">RVX for Android 6.0-7.1 问题中心</string>
+    <string name="revanced_extended_issue_center_title">RVX for Android 5 问题中心</string>
     <string name="revanced_extended_settings">ReVanced Extended 设置</string>
     <string name="revanced_extended_summary">Extended 相关设置</string>
     <string name="revanced_extended_title">Extended 设置</string>

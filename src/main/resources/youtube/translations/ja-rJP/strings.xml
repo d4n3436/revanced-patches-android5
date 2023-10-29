@@ -264,7 +264,7 @@
     <string name="revanced_enable_vp9_codec_title">VP9コーデックを有効にする</string>
     <string name="revanced_experimental_flag">実験的な機能</string>
     <string name="revanced_extended_issue_center_summary">問題を報告するか、提案をここに残してください</string>
-    <string name="revanced_extended_issue_center_title">RVX for Android6.0～7.1問題センター</string>
+    <string name="revanced_extended_issue_center_title">RVX for Android5問題センター</string>
     <string name="revanced_extended_settings">ReVanced Extendedの設定</string>
     <string name="revanced_extended_summary">Extended関連の設定</string>
     <string name="revanced_extended_title">Extendedの設定</string>

@@ -250,7 +250,7 @@ Is it ready to submit?"</string>
     <string name="revanced_enable_vp9_codec_title">Enable VP9 codec</string>
     <string name="revanced_experimental_flag">Experimental Flags</string>
     <string name="revanced_extended_issue_center_summary">Report issues or leave suggestions here</string>
-    <string name="revanced_extended_issue_center_title">RVX for Android 6.0-7.1 Issue Center</string>
+    <string name="revanced_extended_issue_center_title">RVX for Android 5 Issue Center</string>
     <string name="revanced_extended_settings">ReVanced Extended settings</string>
     <string name="revanced_hide_auto_captions_summary_off">Captions are enabled when playing a video with captioning is enforced</string>
     <string name="revanced_hide_auto_captions_summary_on">"Captions aren't enabled when playing a video with captioning is enforced"</string>
@@ -614,9 +614,9 @@ Examples of benefits of version spoofing:
 - Hide bottom tabs while watching shorts
 Please read \"More information about Spoof app version\""</string>
     <string name="revanced_spoof_app_version_info_title">More information about \"Spoof app version\"</string>
-    <string name="revanced_spoof_app_version_info_summary">https://github.com/kitadai31/revanced-patches-android6-7/wiki/Spoof-app-version-information</string>
+    <string name="revanced_spoof_app_version_info_summary">https://github.com/d4n3436/revanced-patches-android5/wiki/Spoof-app-version-information</string>
     <string name="revanced_reboot_first_run">Restart to load the layout normally when the first run</string>
-    <string name="revanced_newer_android_warning_body">"This version of YouTube ReVanced is Android 6.0-7.1 only, but this device is Android %1$s.
+    <string name="revanced_newer_android_warning_body">"This version of YouTube ReVanced is Android 5 only, but this device is Android %1$s.
 You may have installed the wrong version of ReVanced.
 
 Tap \"OK\" to exit the app."</string>

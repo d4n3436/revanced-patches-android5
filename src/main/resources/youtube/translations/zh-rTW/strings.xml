@@ -250,7 +250,7 @@
     <string name="revanced_enable_vp9_codec_title">啟用 VP9 解碼器</string>
     <string name="revanced_experimental_flag">實驗性功能</string>
     <string name="revanced_extended_issue_center_summary">點擊此處回報問題或留下建議</string>
-    <string name="revanced_extended_issue_center_title">RVX for Android 6.0-7.1 問題回報</string>
+    <string name="revanced_extended_issue_center_title">RVX for Android 5 問題回報</string>
     <string name="revanced_extended_settings">ReVanced Extended 設定</string>
     <string name="revanced_extended_summary">Extended 相關設定</string>
     <string name="revanced_extended_title">Extended 設定</string>
