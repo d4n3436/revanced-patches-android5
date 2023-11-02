@@ -8,6 +8,8 @@ import com.android.tools.smali.dexlib2.Opcode
 object LayoutCircleFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.CONST,
+        Opcode.IGET_OBJECT,
+        Opcode.IGET_OBJECT,
         Opcode.CONST_4,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,

@@ -9,6 +9,6 @@ object PivotBarCreateButtonViewFingerprint : MethodFingerprint(
         Opcode.CONST_4,
         Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
-        Opcode.INVOKE_STATIC
+        Opcode.MOVE_OBJECT
     )
 )

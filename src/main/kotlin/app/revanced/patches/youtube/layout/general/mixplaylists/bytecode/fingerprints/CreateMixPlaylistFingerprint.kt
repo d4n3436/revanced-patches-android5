@@ -12,7 +12,6 @@ object CreateMixPlaylistFingerprint : MethodFingerprint(
     opcodes = listOf(
         Opcode.INVOKE_DIRECT,
         Opcode.IPUT_OBJECT,
-        Opcode.INVOKE_VIRTUAL,
         Opcode.IPUT_OBJECT,
         Opcode.IPUT_OBJECT,
         Opcode.IPUT_OBJECT,
