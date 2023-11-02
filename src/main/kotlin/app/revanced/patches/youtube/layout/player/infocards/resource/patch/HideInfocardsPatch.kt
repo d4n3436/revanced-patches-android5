@@ -11,8 +11,7 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.resources.ResourceHelper
 
-// TODO: Fix (16.40.36)
-//@Patch
+@Patch
 @Name("hide-info-cards")
 @Description("Hides info-cards in videos.")
 @DependsOn(

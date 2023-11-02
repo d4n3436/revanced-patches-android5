@@ -4,7 +4,6 @@ import app.revanced.patcher.extensions.or
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 import com.android.tools.smali.dexlib2.AccessFlags
 import com.android.tools.smali.dexlib2.Opcode
-import com.android.tools.smali.dexlib2.iface.instruction.NarrowLiteralInstruction
 
 object SeekbarTappingFingerprint : MethodFingerprint(
     returnType = "Z",
@@ -14,13 +13,13 @@ object SeekbarTappingFingerprint : MethodFingerprint(
         Opcode.NEW_INSTANCE,
         Opcode.INVOKE_DIRECT,
         Opcode.IPUT_OBJECT,
+        Opcode.IGET_OBJECT,
+        Opcode.IGET_BOOLEAN,
+        Opcode.IF_EQZ,
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN
     ),
     customFingerprint = { methodDef, _ ->
         methodDef.name == "onTouchEvent"
-        && methodDef.implementation!!.instructions.any {
-            ((it as? NarrowLiteralInstruction)?.narrowLiteral == 2147483647)
-        }
     }
 )

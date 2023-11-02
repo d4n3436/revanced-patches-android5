@@ -23,8 +23,8 @@ class HideInfoCardsBytecodePatch : BytecodePatch(
             }.result?.mutableMethod?.
             addInstructions(
                 1, """
-                    invoke-static {v0}, $PLAYER_LAYOUT->hideInfoCard(Z)Z
-                    move-result v0
+                    invoke-static {p4}, $PLAYER_LAYOUT->hideInfoCard(Z)Z
+                    move-result p4
                     """
             ) ?: throw InfocardsIncognitoFingerprint.exception
         } ?: throw InfocardsIncognitoParentFingerprint.exception
