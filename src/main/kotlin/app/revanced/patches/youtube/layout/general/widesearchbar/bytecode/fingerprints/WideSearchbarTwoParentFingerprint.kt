@@ -6,9 +6,8 @@ import com.android.tools.smali.dexlib2.AccessFlags
 
 object WideSearchbarTwoParentFingerprint : MethodFingerprint(
     returnType = "L",
-    accessFlags = AccessFlags.PUBLIC or AccessFlags.STATIC,
+    accessFlags = AccessFlags.PRIVATE or AccessFlags.FINAL,
     strings = listOf(
-        "Callback already registered.",
-        "Failed to create SpotlightModeController."
+        "inappreviews_proto.pb"
     )
 )

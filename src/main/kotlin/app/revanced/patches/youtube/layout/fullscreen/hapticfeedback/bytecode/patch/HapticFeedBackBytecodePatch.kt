@@ -20,7 +20,7 @@ class HapticFeedBackBytecodePatch : BytecodePatch(
     listOf(
         MarkerHapticsFingerprint,
         SeekHapticsFingerprint,
-        ScrubbingHapticsFingerprint,
+        //ScrubbingHapticsFingerprint, // Not present on 16.40.36
         //ZoomHapticsFingerprint
     )
 ) {
@@ -28,7 +28,7 @@ class HapticFeedBackBytecodePatch : BytecodePatch(
 
         arrayOf(
             SeekHapticsFingerprint to "disableSeekVibrate",
-            ScrubbingHapticsFingerprint to "disableScrubbingVibrate",
+            //ScrubbingHapticsFingerprint to "disableScrubbingVibrate",
             MarkerHapticsFingerprint to "disableChapterVibrate",
             //ZoomHapticsFingerprint to "disableZoomVibrate"
         ).map { (fingerprint, name) ->
@@ -43,9 +43,9 @@ class HapticFeedBackBytecodePatch : BytecodePatch(
 
     private companion object {
         fun MethodFingerprintResult.disableHaptics(targetMethodName: String) {
-            val startIndex = scanResult.patternScanResult!!.startIndex
+            val startIndex = scanResult.patternScanResult!!.startIndex + 4
             val endIndex = scanResult.patternScanResult!!.endIndex
-            val insertIndex = endIndex + 4
+            val insertIndex = endIndex + 2
             val targetRegister = (method.implementation!!.instructions.elementAt(insertIndex) as OneRegisterInstruction).registerA
             val dummyRegister = targetRegister + 1
 

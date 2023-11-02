@@ -5,7 +5,10 @@ import com.android.tools.smali.dexlib2.Opcode
 
 object SeekHapticsFingerprint : MethodFingerprint(
     opcodes = listOf(
-        Opcode.CHECK_CAST,
+        Opcode.IGET_OBJECT,
+        Opcode.IGET_OBJECT,
+        Opcode.INVOKE_VIRTUAL,
+        Opcode.MOVE_RESULT_OBJECT,
         Opcode.CHECK_CAST,
         Opcode.INVOKE_VIRTUAL,
         Opcode.RETURN_VOID
