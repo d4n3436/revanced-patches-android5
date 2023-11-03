@@ -17,7 +17,7 @@ import app.revanced.shared.util.bytecode.BytecodeHelper
 import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.iface.instruction.FiveRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction22c
+import com.android.tools.smali.dexlib2.iface.instruction.TwoRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction35c
 import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
@@ -55,10 +55,10 @@ class SponsorBlockBytecodePatch : BytecodePatch(
          Get the instance of the seekbar rectangle
          */
         for ((index, instruction) in insertInstructions.withIndex()) {
-            if (instruction.opcode != Opcode.IGET_OBJECT) continue
-            val seekbarRegister = (instruction as Instruction22c).registerB
+            if (instruction.opcode != Opcode.MOVE_OBJECT_FROM16) continue
+            val seekbarRegister = (instruction as TwoRegisterInstruction).registerA
             insertMethod.addInstruction(
-                index - 1,
+                index + 1,
                 "invoke-static {v$seekbarRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->setSponsorBarRect(Ljava/lang/Object;)V"
             )
             break
@@ -90,7 +90,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         }
 
         mapOf(
-            "setSponsorBarAbsoluteLeft" to 3,
+            "setSponsorBarAbsoluteLeft" to 2,
             "setSponsorBarAbsoluteRight" to 0
         ).forEach { (string, int) ->
             val (index, register) = drawRectangleInstructions[int]
@@ -122,7 +122,7 @@ class SponsorBlockBytecodePatch : BytecodePatch(
         // set SegmentHelperLayout.context to the player layout instance
         val instanceRegister = 0
         NextGenWatchLayoutFingerprint.result!!.mutableMethod.addInstruction(
-            1, // after super call
+            11, // after super call
             "invoke-static/range {p$instanceRegister}, $INTEGRATIONS_PLAYER_CONTROLLER_CLASS_DESCRIPTOR->addSkipSponsorView15(Landroid/view/View;)V"
         )
 

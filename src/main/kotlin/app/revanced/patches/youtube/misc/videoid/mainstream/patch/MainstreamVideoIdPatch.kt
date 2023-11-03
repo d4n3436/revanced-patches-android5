@@ -25,9 +25,7 @@ import com.android.tools.smali.dexlib2.Opcode
 import com.android.tools.smali.dexlib2.builder.MutableMethodImplementation
 import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 import com.android.tools.smali.dexlib2.iface.instruction.ReferenceInstruction
-import com.android.tools.smali.dexlib2.iface.instruction.formats.Instruction21c
 import com.android.tools.smali.dexlib2.iface.reference.FieldReference
-import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethod
 import com.android.tools.smali.dexlib2.immutable.ImmutableMethodParameter
 import com.android.tools.smali.dexlib2.util.MethodUtil
@@ -128,11 +126,6 @@ class MainstreamVideoIdPatch : BytecodePatch(
 
 
         with (HookTimebarPatch.EmptyColorFingerprintResult.mutableMethod) {
-            val methodReference =
-                HookTimebarPatch.TimbarFingerprintResult.method.let {
-                    (it.implementation!!.instructions.elementAt(2) as ReferenceInstruction).reference as MethodReference
-                }
-
             val instructions = implementation!!.instructions
 
             reactReference =
@@ -140,13 +133,11 @@ class MainstreamVideoIdPatch : BytecodePatch(
 
 
             for ((index, instruction) in instructions.withIndex()) {
-                if (instruction.opcode != Opcode.CHECK_CAST) continue
-                val primaryRegister = (instruction as Instruction21c).registerA + 1
+                if (instruction.opcode != Opcode.MOVE_RESULT_WIDE) continue
+                val primaryRegister = (instruction as OneRegisterInstruction).registerA
                 val secondaryRegister = primaryRegister + 1
                 addInstructions(
-                    index, """
-                        invoke-virtual {p0}, $methodReference
-                        move-result-wide v$primaryRegister
+                    index + 1, """
                         invoke-static {v$primaryRegister, v$secondaryRegister}, $VideoInformation->setCurrentVideoLength(J)V
                     """
                 )
