@@ -200,9 +200,6 @@
         <!-- SETTINGS: HIDE_ENDSCREEN_OVERLAY
         <SwitchPreference android:title="@string/revanced_hide_endscreen_overlay_title" android:key="revanced_hide_endscreen_overlay" android:defaultValue="false" android:summaryOn="@string/revanced_hide_endscreen_overlay_summary_on" android:summaryOff="@string/revanced_hide_endscreen_overlay_summary_off" />SETTINGS: HIDE_ENDSCREEN_OVERLAY -->
 
-        <!-- SETTINGS: HIDE_FILMSTRIP_OVERLAY
-        <SwitchPreference android:title="@string/revanced_hide_filmstrip_overlay_title" android:key="revanced_hide_filmstrip_overlay" android:defaultValue="false" android:summaryOn="@string/revanced_hide_filmstrip_overlay_summary_on" android:summaryOff="@string/revanced_hide_filmstrip_overlay_summary_off" />SETTINGS: HIDE_FILMSTRIP_OVERLAY -->
-
         <!-- SETTINGS: DISABLE_HAPTIC_FEEDBACK
         <PreferenceScreen android:title="@string/revanced_disable_haptic_feedback_title" android:key="revanced_disable_haptic_feedback" android:summary="@string/revanced_disable_haptic_feedback_summary">
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_disable_haptic_feedback_title" />
@@ -392,7 +389,6 @@
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_fullscreen" />
             <Preference android:title="hide-fullscreen-panels" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-endscreen-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-filmstrip-overlay" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="disable-haptic-feedback" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="disable-landscape-mode" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 

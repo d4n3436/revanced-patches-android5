@@ -322,9 +322,6 @@ Is it ready to submit?"</string>
     <string name="revanced_hide_endscreen_overlay_summary_off">Endscreen overlay are shown</string>
     <string name="revanced_hide_endscreen_overlay_summary_on">Endscreen overlay are hidden</string>
     <string name="revanced_hide_endscreen_overlay_title">Hide endscreen overlay</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_off">Film strip overlay are shown</string>
-    <string name="revanced_hide_filmstrip_overlay_summary_on">Film strip overlay are hidden</string>
-    <string name="revanced_hide_filmstrip_overlay_title">Hide film strip overlay</string>
     <string name="revanced_hide_fullscreen_panels_summary_off">Fullscreen panels are shown</string>
     <string name="revanced_hide_fullscreen_panels_summary_on">Fullscreen panels are hidden</string>
     <string name="revanced_hide_fullscreen_panels_title">Hide fullscreen panels</string>
