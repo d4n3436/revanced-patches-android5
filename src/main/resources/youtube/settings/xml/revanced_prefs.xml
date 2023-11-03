@@ -85,9 +85,6 @@
             <!-- SETTINGS: SHORTS_COMPONENT_PARENT.B
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_shorts_player_component_title" />SETTINGS: SHORTS_COMPONENT_PARENT.B -->
 
-            <!-- SETTINGS: HIDE_STARTUP_SHORTS_PLAYER
-            <SwitchPreference android:title="@string/revanced_hide_startup_shorts_player_title" android:key="revanced_hide_startup_shorts_player" android:defaultValue="true" android:summaryOn="@string/revanced_hide_startup_shorts_player_summary_on" android:summaryOff="@string/revanced_hide_startup_shorts_player_summary_off" />SETTINGS: HIDE_STARTUP_SHORTS_PLAYER -->
-
             <!-- SETTINGS: HIDE_SHORTS_COMPONENTS
             <SwitchPreference android:title="@string/revanced_hide_shorts_player_comments_button_title" android:key="revanced_hide_shorts_player_comments_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_player_comments_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_comments_button_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_shorts_player_remix_button_title" android:key="revanced_hide_shorts_player_remix_button" android:defaultValue="false" android:summaryOn="@string/revanced_hide_shorts_player_remix_button_summary_on" android:summaryOff="@string/revanced_hide_shorts_player_remix_button_summary_off" />
@@ -362,7 +359,6 @@
             <Preference android:title="hide-create-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-shorts-button" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-shorts-component" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-startup-shorts-player" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-wide-searchbar" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-tablet-miniplayer" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-auto-captions" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
