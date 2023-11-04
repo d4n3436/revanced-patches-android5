@@ -10,13 +10,12 @@ import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.resources.ResourceHelper
 
-// TODO: Fix (16.40.36)
-//@Patch
+@Patch
 @Name("optimize-resource")
 @DependsOn(
     [
         RedundantResourcePatch::class,
-        MissingTranslationPatch::class,
+        //MissingTranslationPatch::class, // TODO: Fix crash when adding missing translations
         SettingsPatch::class
     ]
 )

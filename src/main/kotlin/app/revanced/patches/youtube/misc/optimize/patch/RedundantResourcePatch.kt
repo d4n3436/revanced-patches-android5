@@ -21,7 +21,7 @@ class RedundantResourcePatch : ResourcePatch {
         arrayOf(
             WHITELIST_MDPI,
             WHITELIST_HDPI,
-            WHITELIST_XHDPI,
+            //WHITELIST_XHDPI, // TODO: Fix crash when deleting files from drawable-xhdpi folder
             WHITELIST_XXXHDPI
         ).forEach { (path, array) ->
             val tmpDirectory = path + "-v21"
