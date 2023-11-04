@@ -33,8 +33,7 @@ class SettingsBytecodePatch : BytecodePatch(
 
     // list of resource names to get the id of
     private val resourceIds = arrayOf(
-        "Theme.YouTube.Light",
-        // "Theme.YouTube.Light.DarkerPalette"
+        "Theme.YouTube.Light"
     ).map { name ->
         ResourceMappingPatch.resourceMappings.single { it.name == name }.id
     }
@@ -57,19 +56,6 @@ class SettingsBytecodePatch : BytecodePatch(
                                         val viewRegister = (instructions.elementAt(index) as Instruction31i).registerA
                                         mutableMethod.implementation!!.injectTheme(mutableMethod.implementation!!.instructions.size - 1 , viewRegister, "setPrimaryTheme")
                                     }
-
-                                    /*
-                                    resourceIds[1] -> { // secondary theme
-                                        val insertIndex = index - 3
-                                        val invokeInstruction = instructions.elementAt(insertIndex)
-                                        if (invokeInstruction.opcode != Opcode.IF_NE) return@forEachIndexed
-
-                                        val mutableMethod = context.proxy(classDef).mutableClass.findMutableMethodOf(method)
-
-                                        val viewRegister = (instructions.elementAt(index) as Instruction31i).registerA
-                                        mutableMethod.implementation!!.injectTheme(index + 2, viewRegister, "setSecondaryTheme")
-                                    }
-                                    */
                                 }
                             }
                             else -> return@forEachIndexed
