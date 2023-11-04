@@ -6,6 +6,7 @@ import app.revanced.patcher.extensions.InstructionExtensions.getInstruction
 import app.revanced.patcher.patch.BytecodePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.util.smali.ExternalLabel
+import app.revanced.patches.youtube.misc.doublebacktoclose.patch.DoubleBackToClosePatch
 import app.revanced.patches.youtube.misc.litho.filter.fingerprints.LithoFingerprint
 import app.revanced.patches.youtube.misc.swiperefresh.patch.SwipeRefreshPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
@@ -18,7 +19,7 @@ import com.android.tools.smali.dexlib2.iface.reference.MethodReference
 
 @DependsOn(
     [
-        //DoubleBackToClosePatch::class,
+        DoubleBackToClosePatch::class,
         SwipeRefreshPatch::class
     ]
 )

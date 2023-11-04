@@ -14,10 +14,7 @@ import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.extensions.exception
 import app.revanced.shared.util.integrations.Constants.UTILS_PATH
 
-// Not working on 17.34.36
 @Name("double-back-to-close")
-// unnecessary for Android 6~7
-// @DependsOn([PredictiveBackGesturePatch::class])
 @YouTubeCompatibility
 class DoubleBackToClosePatch : BytecodePatch(
     listOf(
