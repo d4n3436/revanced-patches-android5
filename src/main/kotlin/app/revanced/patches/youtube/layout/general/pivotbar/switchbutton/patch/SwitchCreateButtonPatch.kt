@@ -12,7 +12,7 @@ import app.revanced.shared.util.resources.ResourceHelper
 
 @Patch
 @Name("switch-create-notification")
-@Description("Switching the create button and notification button.")
+@Description("Switches the create button and notification button.")
 @DependsOn(
     [
         SwitchCreateButtonBytecodePatch::class,

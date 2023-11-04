@@ -5,6 +5,7 @@ import com.android.tools.smali.dexlib2.Opcode
 
 object AutoMotiveFingerprint : MethodFingerprint(
     opcodes = listOf(
+        Opcode.CONST_STRING,
         Opcode.GOTO,
         Opcode.INVOKE_STATIC,
         Opcode.MOVE_RESULT,
