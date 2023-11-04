@@ -406,9 +406,6 @@ Is it ready to submit?"</string>
     <string name="revanced_hide_snackbar_summary_off">Snackbar is shown</string>
     <string name="revanced_hide_snackbar_summary_on">Snackbar is hidden</string>
     <string name="revanced_hide_snackbar_title">Hide snackbar</string>
-    <string name="revanced_hide_stories_shelf_summary_off">Stories shelves are shown</string>
-    <string name="revanced_hide_stories_shelf_summary_on">Stories shelves are hidden</string>
-    <string name="revanced_hide_stories_shelf_title">Hide stories shelf</string>
     <string name="revanced_hide_suggested_actions_summary_off">Suggested actions shown</string>
     <string name="revanced_hide_suggested_actions_summary_on">Suggested actions hidden</string>
     <string name="revanced_hide_suggested_actions_title">Hide suggested actions</string>
