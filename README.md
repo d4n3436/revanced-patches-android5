@@ -14,7 +14,7 @@ Unofficial ReVanced Extended for YouTube 16.40.36. Based on [kitadai31's fork of
 
 - Patch with the following command (file names changed for brevity):
 ```
-java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.161.0.jar -m revanced-integrations-0.96.7.apk
+java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.161.1.jar -m revanced-integrations-0.96.8.apk
 ```
 
 ## 🧩 Patches List
@@ -32,29 +32,38 @@ java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.
 | `custom-video-speed` | Adds more video speed options. | 16.40.36 |
 | `default-video-quality` | Adds ability to set default video quality settings. | 16.40.36 |
 | `default-video-speed` | Adds ability to set default video speed settings. | 16.40.36 |
+| `disable-haptic-feedback` | Disable haptic feedback when swiping. | 16.40.36 |
 | `disable-landscape-mode` | Disable landscape mode when entering fullscreen. | 16.40.36 |
 | `disable-update-screen` | Disables the app update screen. | 16.40.36 |
 | `enable-external-browser` | Use an external browser to open the url. | 16.40.36 |
 | `enable-minimized-playback` | Enables minimized and background playback. | 16.40.36 |
 | `enable-old-quality-layout` | Enables the original quality flyout menu. | 16.40.36 |
 | `enable-open-links-directly` | Bypass URL redirects (youtube.com/redirect) when opening links in video descriptions. | 16.40.36 |
+| `enable-seekbar-tapping` | Enables tap-to-seek on the seekbar of the video player. | 16.40.36 |
 | `enable-tablet-miniplayer` | Enables the tablet mini player layout. | 16.40.36 |
+| `enable-wide-searchbar` | Replaces the search icon with a wide search bar. This will hide the YouTube logo when active. | 16.40.36 |
 | `force-premium-heading` | Forces premium heading on the home screen. | 16.40.36 |
 | `force-vp9-codec` | Forces the VP9 codec for videos. | 16.40.36 |
 | `header-switch` | Add switch to change header. | 16.40.36 |
+| `hide-auto-captions` | Hide captions from being automatically enabled. | 16.40.36 |
+| `hide-auto-player-popup-panels` | Hide automatic popup panels (playlist or live chat) on video player. | 16.40.36 |
 | `hide-autoplay-button` | Hides the autoplay button in the video player. | 16.40.36 |
 | `hide-button-container` | Adds the options to hide action buttons under a video. | 16.40.36 |
 | `hide-cast-button` | Hides the cast button in the video player. | 16.40.36 |
 | `hide-channel-watermark` | Hides creator's watermarks on videos. | 16.40.36 |
 | `hide-comment-component` | Adds options to hide comment component under a video. | 16.40.36 |
+| `hide-create-button` | Hides the create button in the navigation bar. | 16.40.36 |
 | `hide-crowdfunding-box` | Hides the crowdfunding box between the player and video description. | 16.40.36 |
 | `hide-email-address` | Hides the email address in the account switcher. | 16.40.36 |
+| `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 16.40.36 |
 | `hide-endscreen-overlay` | Hide endscreen overlay on swipe controls. | 16.40.36 |
 | `hide-firsttime-background-notification` | Disable notification when you launch background play for the first time. | 16.40.36 |
 | `hide-flyout-panel` | Adds options to hide player settings flyout panel. | 16.40.36 |
 | `hide-fullscreen-panels` | Hides video description and comments panel in fullscreen view. | 16.40.36 |
 | `hide-general-ads` | Hooks the method which parses the bytes into a ComponentContext to filter components. | 16.40.36 |
+| `hide-info-cards` | Hides info-cards in videos. | 16.40.36 |
 | `hide-live-chat-button` | Hides the live chat button in the video player. | 16.40.36 |
+| `hide-mix-playlists` | Removes mix playlists from home feed and video player. | 16.40.36 |
 | `hide-next-prev-button` | Hides the next prev button in the player controller. | 16.40.36 |
 | `hide-player-captions-button` | Hides the captions button in the video player. | 16.40.36 |
 | `hide-player-overlay-filter` | Remove the dark filter layer from the player's background. | 16.40.36 |
@@ -69,6 +78,7 @@ java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.
 | `layout-switch` | Tricks the dpi to use some tablet/phone layouts. | 16.40.36 |
 | `materialyou` | Enables MaterialYou theme for Android 12+ | 16.40.36 |
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 16.40.36 |
+| `optimize-resource` | Removes duplicate resources and adds missing translation files from YouTube. | 16.40.36 |
 | `os-version-check` | Check the Android version and show a warning if the device is Android 6.0 or higher. | 16.40.36 |
 | `overlay-buttons` | Add overlay buttons for ReVanced Extended. | 16.40.36 |
 | `patch-options` | Create an options.toml file. | 16.40.36 |
@@ -79,7 +89,7 @@ java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.
 | `spoof-app-version` | Spoof the YouTube client version to enable the new layout or restore old layout. | 16.40.36 |
 | `spoof-player-parameters` | Spoofs player parameters to prevent the endless buffering issue. | 16.40.36 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 16.40.36 |
-| `switch-create-notification` | Switching the create button and notification button. | 16.40.36 |
+| `switch-create-notification` | Switches the create button and notification button. | 16.40.36 |
 | `theme` | Applies a custom theme (default: amoled). | 16.40.36 |
 | `translations` | Add Crowdin Translations. | 16.40.36 |
 </details>
