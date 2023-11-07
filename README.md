@@ -14,7 +14,7 @@ Unofficial ReVanced Extended for YouTube 16.40.36. Based on [kitadai31's fork of
 
 - Patch with the following command (file names changed for brevity):
 ```
-java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.161.1.jar -m revanced-integrations-0.96.8.apk
+java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.161.1.jar -m revanced-integrations-0.96.9.apk
 ```
 
 ## 🧩 Patches List
