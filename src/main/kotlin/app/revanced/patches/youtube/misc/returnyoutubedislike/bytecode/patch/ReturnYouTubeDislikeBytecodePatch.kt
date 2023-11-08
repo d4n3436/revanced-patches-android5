@@ -20,7 +20,8 @@ import com.android.tools.smali.dexlib2.iface.instruction.OneRegisterInstruction
 @Name("return-youtube-dislike-bytecode-patch")
 @DependsOn(
     [
-        SharedResourcdIdPatch::class
+        SharedResourcdIdPatch::class,
+        MainstreamVideoIdPatch::class
     ]
 )
 @YouTubeCompatibility
