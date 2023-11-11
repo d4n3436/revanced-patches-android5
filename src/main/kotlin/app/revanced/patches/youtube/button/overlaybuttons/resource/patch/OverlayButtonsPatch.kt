@@ -87,7 +87,7 @@ class OverlayButtonsResourcePatch : ResourcePatch {
                 "paddingBottom=\"16",
                 "paddingBottom=\"28"
             ).replace(
-                "paddingLeft=\"12",
+                "paddingLeft=\"24",
                 "paddingLeft=\"0"
             ).replace(
                 "paddingRight=\"12",
