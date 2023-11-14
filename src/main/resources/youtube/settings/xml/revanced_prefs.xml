@@ -207,7 +207,6 @@
         <!-- SETTINGS: COMMENT_COMPONENT
         <PreferenceScreen android:title="@string/revanced_hide_comments_component_title" android:key="revanced_hide_comments_component" android:summary="@string/revanced_hide_comments_component_summary">
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_comments_component_title" />
-            <SwitchPreference android:title="@string/revanced_hide_comments_section_title" android:key="revanced_hide_comments_section" android:defaultValue="false" android:summaryOn="@string/revanced_hide_comments_section_summary_on" android:summaryOff="@string/revanced_hide_comments_section_summary_off" />
             <SwitchPreference android:title="@string/revanced_hide_preview_comment_title" android:key="revanced_hide_preview_comment" android:defaultValue="false" android:summaryOn="@string/revanced_hide_preview_comment_on" android:summaryOff="@string/revanced_hide_preview_comment_off" />
         </PreferenceScreen>SETTINGS: COMMENT_COMPONENT -->
 
