@@ -14,7 +14,7 @@ Unofficial ReVanced Extended for YouTube 16.40.36. Based on [kitadai31's fork of
 
 - Patch with the following command (file names changed for brevity):
 ```
-java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.161.1.jar -m revanced-integrations-0.96.9.apk
+java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.161.2.jar -m revanced-integrations-0.96.9.apk
 ```
 
 - Or use [auto-cli](https://github.com/taku-nm/auto-cli) for automated patching. The prerequisites are downloaded automatically.
@@ -50,7 +50,6 @@ java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.
 | `hide-auto-captions` | Hide captions from being automatically enabled. | 16.40.36 |
 | `hide-auto-player-popup-panels` | Hide automatic popup panels (playlist or live chat) on video player. | 16.40.36 |
 | `hide-autoplay-button` | Hides the autoplay button in the video player. | 16.40.36 |
-| `hide-button-container` | Adds the options to hide action buttons under a video. | 16.40.36 |
 | `hide-cast-button` | Hides the cast button in the video player. | 16.40.36 |
 | `hide-channel-watermark` | Hides creator's watermarks on videos. | 16.40.36 |
 | `hide-comment-component` | Adds options to hide comment component under a video. | 16.40.36 |
@@ -60,7 +59,6 @@ java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.
 | `hide-endscreen-cards` | Hides the suggested video cards at the end of a video in fullscreen. | 16.40.36 |
 | `hide-endscreen-overlay` | Hide endscreen overlay on swipe controls. | 16.40.36 |
 | `hide-firsttime-background-notification` | Disable notification when you launch background play for the first time. | 16.40.36 |
-| `hide-flyout-panel` | Adds options to hide player settings flyout panel. | 16.40.36 |
 | `hide-fullscreen-panels` | Hides video description and comments panel in fullscreen view. | 16.40.36 |
 | `hide-general-ads` | Hooks the method which parses the bytes into a ComponentContext to filter components. | 16.40.36 |
 | `hide-info-cards` | Hides info-cards in videos. | 16.40.36 |
@@ -72,7 +70,6 @@ java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.
 | `hide-shorts-button` | Hides the shorts button in the navigation bar. | 16.40.36 |
 | `hide-shorts-component` | Hides other Shorts components. | 16.40.36 |
 | `hide-snackbar` | Hides the snackbar action popup. | 16.40.36 |
-| `hide-stories` | Hides YouTube Stories shelf on the feed. | 16.40.36 |
 | `hide-suggested-actions` | Hide the suggested actions bar inside the player. | 16.40.36 |
 | `hide-time-and-seekbar` | Hides progress bar and time counter on videos. | 16.40.36 |
 | `hide-tooltip-content` | Hides the tooltip box that appears on first install. | 16.40.36 |
@@ -84,7 +81,6 @@ java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.
 | `os-version-check` | Check the Android version and show a warning if the device is Android 6.0 or higher. | 16.40.36 |
 | `overlay-buttons` | Add overlay buttons for ReVanced Extended. | 16.40.36 |
 | `patch-options` | Create an options.toml file. | 16.40.36 |
-| `remove-player-button-background` | Removes the background from the video player buttons. | 16.40.36 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 16.40.36 |
 | `settings` | Applies mandatory patches to implement ReVanced settings into the application. | 16.40.36 |
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 16.40.36 |
