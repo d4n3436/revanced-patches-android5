@@ -217,22 +217,6 @@
         <!-- SETTINGS: ENABLE_OLD_QUALITY_LAYOUT
         <SwitchPreference android:title="@string/revanced_enable_old_quality_layout_title" android:key="revanced_enable_old_quality_layout" android:defaultValue="true" android:summaryOn="@string/revanced_enable_old_quality_layout_summary_on" android:summaryOff="@string/revanced_enable_old_quality_layout_summary_off" />SETTINGS: ENABLE_OLD_QUALITY_LAYOUT -->
 
-        <!-- SETTINGS: FLYOUT_PANEL_COMPONENT
-        <PreferenceScreen android:title="@string/revanced_player_flyout_panel_title" android:key="revanced_player_flyout_panel" android:summary="@string/revanced_player_flyout_panel_summary">
-            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_player_flyout_panel_title" />
-            <SwitchPreference android:title="@string/revanced_hide_menu_captions_title" android:key="revanced_hide_menu_captions" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_captions_summary_on" android:summaryOff="@string/revanced_hide_menu_captions_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_menu_loop_video_title" android:key="revanced_hide_menu_loop_video" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_loop_video_summary_on" android:summaryOff="@string/revanced_hide_menu_loop_video_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_menu_ambient_mode_title" android:key="revanced_hide_menu_ambient_mode" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_ambient_mode_summary_on" android:summaryOff="@string/revanced_hide_menu_ambient_mode_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_menu_report_title" android:key="revanced_hide_menu_report" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_report_summary_on" android:summaryOff="@string/revanced_hide_menu_report_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_menu_help_title" android:key="revanced_hide_menu_help" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_help_summary_on" android:summaryOff="@string/revanced_hide_menu_help_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_menu_more_info_title" android:key="revanced_hide_menu_more_info" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_more_info_summary_on" android:summaryOff="@string/revanced_hide_menu_more_info_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_menu_listening_controls_title" android:key="revanced_hide_menu_listening_controls" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_listening_controls_summary_on" android:summaryOff="@string/revanced_hide_menu_listening_controls_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_menu_audio_track_title" android:key="revanced_hide_menu_audio_track" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_audio_track_summary_on" android:summaryOff="@string/revanced_hide_menu_audio_track_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_menu_watch_in_vr_title" android:key="revanced_hide_menu_watch_in_vr" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_watch_in_vr_summary_on" android:summaryOff="@string/revanced_hide_menu_watch_in_vr_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_menu_stats_for_nerds_title" android:key="hide_menu_stats_for_nerds" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_stats_for_nerds_summary_on" android:summaryOff="@string/revanced_hide_menu_stats_for_nerds_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_menu_listen_with_youtube_music_title" android:key="revanced_hide_menu_listen_with_youtube_music" android:defaultValue="false" android:summaryOn="@string/revanced_hide_menu_listen_with_youtube_music_summary_on" android:summaryOff="@string/revanced_hide_menu_listen_with_youtube_music_summary_off" />
-        </PreferenceScreen>SETTINGS: FLYOUT_PANEL_COMPONENT -->
-
     <!-- PREFERENCE_HEADER: SEEKBAR
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_seekbar" />PREFERENCE_HEADER: SEEKBAR -->
 
@@ -372,7 +356,6 @@
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_flyoutmenu" />
             <Preference android:title="custom-seekbar-color" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="enable-old-quality-layout" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
-            <Preference android:title="hide-flyout-panel" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_seekbar" />
             <Preference android:title="enable-seekbar-tapping" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
