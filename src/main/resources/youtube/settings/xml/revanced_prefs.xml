@@ -204,21 +204,6 @@
     <!-- PREFERENCE_HEADER: BOTTOM_PLAYER
         <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_bottomplayer" />PREFERENCE_HEADER: BOTTOM_PLAYER -->
 
-        <!-- SETTINGS: BUTTON_CONTAINER
-        <PreferenceScreen android:title="@string/revanced_hide_button_container_title" android:key="revanced_hide_button_container" android:summary="@string/revanced_hide_button_container_summary">
-            <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_button_container_title" />
-            <SwitchPreference android:title="@string/revanced_hide_button_like_title" android:key="revanced_hide_button_like" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_like_summary_on" android:summaryOff="@string/revanced_hide_button_like_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_button_dislike_title" android:key="revanced_hide_button_dislike" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_dislike_summary_on" android:summaryOff="@string/revanced_hide_button_dislike_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_button_share_title" android:key="revanced_hide_button_share" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_share_summary_on" android:summaryOff="@string/revanced_hide_button_share_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_button_live_chat_title" android:key="revanced_hide_button_live_chat" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_live_chat_summary_on" android:summaryOff="@string/revanced_hide_button_live_chat_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_button_report_title" android:key="revanced_hide_button_report" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_report_summary_on" android:summaryOff="@string/revanced_hide_button_report_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_button_create_short_title" android:key="revanced_hide_button_create_short" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_create_short_summary_on" android:summaryOff="@string/revanced_hide_button_create_short_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_button_thanks_title" android:key="revanced_hide_button_thanks" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_thanks_summary_on" android:summaryOff="@string/revanced_hide_button_thanks_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_button_create_clip_title" android:key="revanced_hide_button_create_clip" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_create_clip_summary_on" android:summaryOff="@string/revanced_hide_button_create_clip_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_button_download_title" android:key="revanced_hide_button_download" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_download_summary_on" android:summaryOff="@string/revanced_hide_button_download_summary_off" />
-            <SwitchPreference android:title="@string/revanced_hide_button_playlist_title" android:key="revanced_hide_button_playlist" android:defaultValue="false" android:summaryOn="@string/revanced_hide_button_playlist_summary_on" android:summaryOff="@string/revanced_hide_button_playlist_summary_off" />
-        </PreferenceScreen>SETTINGS: BUTTON_CONTAINER -->
-
         <!-- SETTINGS: COMMENT_COMPONENT
         <PreferenceScreen android:title="@string/revanced_hide_comments_component_title" android:key="revanced_hide_comments_component" android:summary="@string/revanced_hide_comments_component_summary">
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_hide_comments_component_title" />
@@ -382,7 +367,6 @@
             <Preference android:title="disable-landscape-mode" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_bottomplayer" />
-            <Preference android:title="hide-button-container" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
             <Preference android:title="hide-comment-component" android:summary="@string/revanced_patches_excluded" android:selectable="false"/>
 
             <Preference android:title=" " android:selectable="false" android:summary="@string/revanced_layout_settings_flyoutmenu" />
