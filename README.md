@@ -18,6 +18,7 @@ java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.
 ```
 
 - Or use [auto-cli](https://github.com/taku-nm/auto-cli) for automated patching. The prerequisites are downloaded automatically.
+- You can also use the [fork of ReVanced Manager for Android 5-7](https://github.com/kitadai31/revanced-manager-android5-7).
 
 ## 🧩 Patches List
 
