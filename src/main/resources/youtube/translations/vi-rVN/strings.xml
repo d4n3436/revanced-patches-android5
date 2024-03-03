@@ -77,8 +77,6 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Thẻ Đĩa nhạc được hiển thị trong kết quả tìm kiếm</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Thẻ Đĩa nhạc đã ẩn khỏi kết quả tìm kiếm</string>
     <string name="revanced_adremover_album_card_in_search_title">Ẩn thẻ Đĩa nhạc</string>
-    <string name="revanced_adremover_breaking_news_shelf_summary_off">Kệ Tin nổi bật được hiển thị</string>
-    <string name="revanced_adremover_breaking_news_shelf_summary_on">Kệ Tin nổi bật đã ẩn</string>
     <string name="revanced_adremover_breaking_news_shelf_title">Ẩn kệ Tin nổi bật</string>
     <string name="revanced_adremover_browse_store_button_summary_off">Nút Duyệt xem cửa hàng được hiển thị</string>
     <string name="revanced_adremover_browse_store_button_summary_on">Duyệt xem cửa hàng đã ẩn</string>
@@ -420,9 +418,6 @@ Bạn đã sẵn sàng gửi đi chưa?"</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">Phát YouTube Shorts khi khởi động ứng dụng đang bật</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">Phát YouTube Shorts khi khởi động ứng dụng đã tắt</string>
     <string name="revanced_hide_startup_shorts_player_title">Tắt Phát YouTube Shorts khi khởi động ứng dụng</string>
-    <string name="revanced_hide_stories_shelf_summary_off">Kệ Câu chuyện được hiển thị</string>
-    <string name="revanced_hide_stories_shelf_summary_on">Kệ Câu chuyện đã ẩn</string>
-    <string name="revanced_hide_stories_shelf_title">Ẩn kệ Câu chuyện</string>
     <string name="revanced_hide_suggested_actions_summary_off">Hành động đề xuất được hiển thị</string>
     <string name="revanced_hide_suggested_actions_summary_on">Hành động đề xuất đã ẩn</string>
     <string name="revanced_hide_suggested_actions_title">Ẩn Hành động đề xuất</string>

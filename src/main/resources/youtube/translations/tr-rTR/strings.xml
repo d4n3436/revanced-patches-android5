@@ -77,8 +77,6 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Gizlenmiyor</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Gizleniyor</string>
     <string name="revanced_adremover_album_card_in_search_title">Albüm kartlarını gizle</string>
-    <string name="revanced_adremover_breaking_news_shelf_summary_off">Son dakika haber paneli gizlenmiyor</string>
-    <string name="revanced_adremover_breaking_news_shelf_summary_on">Gizleniyor</string>
     <string name="revanced_adremover_breaking_news_shelf_title">Son dakika panelini gizle</string>
     <string name="revanced_adremover_browse_store_button_summary_off">Mağazaya gözat düğmesi gösteriliyor</string>
     <string name="revanced_adremover_browse_store_button_summary_on">Mağazaya gözat düğmesi gizleniyor</string>
@@ -420,9 +418,6 @@ Gönderilmeye hazır mı?"</string>
     <string name="revanced_hide_startup_shorts_player_summary_off">Shorts oynatıcı, başlangıçta gösteriliyor</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">Shorts oynatıcı, başlangıçta gösterilmiyor</string>
     <string name="revanced_hide_startup_shorts_player_title">Shorts videolarını açılışta oynat</string>
-    <string name="revanced_hide_stories_shelf_summary_off">Gizlenmiyor</string>
-    <string name="revanced_hide_stories_shelf_summary_on">Gizleniyor</string>
-    <string name="revanced_hide_stories_shelf_title">Hikayeleri gizle</string>
     <string name="revanced_hide_suggested_actions_summary_off">Gizlenmiyor</string>
     <string name="revanced_hide_suggested_actions_summary_on">Gizleniyor</string>
     <string name="revanced_hide_suggested_actions_title">Tam ekrandaki \"Diğer videolar\"</string>

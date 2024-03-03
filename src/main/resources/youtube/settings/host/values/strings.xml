@@ -75,8 +75,7 @@ Is it ready to submit?"</string>
     <string name="revanced_adremover_album_card_in_search_summary_off">Album cards are shown from search results</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Album cards are hidden from search results</string>
     <string name="revanced_adremover_album_card_in_search_title">Hide album cards</string>
-    <string name="revanced_adremover_breaking_news_shelf_summary_off">Breaking news shelves are shown</string>
-    <string name="revanced_adremover_breaking_news_shelf_summary_on">Breaking news shelves are hidden</string>
+    <string name="revanced_adremover_breaking_news_shelf_summary">As of February 2024, this setting does not work</string>
     <string name="revanced_adremover_breaking_news_shelf_title">Hide breaking news shelf</string>
     <string name="revanced_adremover_browse_store_button_summary_off">Browse store button is shown</string>
     <string name="revanced_adremover_browse_store_button_summary_on">Browse store button is hidden</string>
@@ -397,6 +396,9 @@ Is it ready to submit?"</string>
     <string name="revanced_hide_snackbar_summary_off">Snackbar is shown</string>
     <string name="revanced_hide_snackbar_summary_on">Snackbar is hidden</string>
     <string name="revanced_hide_snackbar_title">Hide snackbar</string>
+    <string name="revanced_hide_startup_shorts_player_summary_off">Shorts player is shown at app startup</string>
+    <string name="revanced_hide_startup_shorts_player_summary_on">Shorts player is hidden at app startup</string>
+    <string name="revanced_hide_startup_shorts_player_title">Hide shorts player at app startup</string>
     <string name="revanced_hide_suggested_actions_summary_off">Suggested actions shown</string>
     <string name="revanced_hide_suggested_actions_summary_on">Suggested actions hidden</string>
     <string name="revanced_hide_suggested_actions_title">Hide suggested actions</string>
@@ -605,4 +607,11 @@ Tap \"OK\" to exit the app."</string>
     <string name="revanced_disable_landscape_mode_summary_off">Landscape mode when entering fullscreen is enabled</string>
     <string name="revanced_disable_landscape_mode_summary_on">Landscape mode when entering fullscreen is disabled</string>
     <string name="revanced_disable_landscape_mode_title">Disable landscape mode</string>
+    <string name="revanced_enable_shorts_seek_summary">"Replace search and menu buttons in Shorts player with skip/rewind buttons
+
+Hint: Long press anywhere to open the menu"</string>
+    <string name="revanced_enable_shorts_seek_title">Shorts seek</string>
+    <string name="revanced_shorts_seek_amount_summary_off">OFF = 5 seconds</string>
+    <string name="revanced_shorts_seek_amount_summary_on">ON = 10 seconds</string>
+    <string name="revanced_shorts_seek_amount_title">Amount of Shorts seek</string>
 </resources>

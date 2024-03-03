@@ -77,8 +77,6 @@
     <string name="revanced_adremover_album_card_in_search_summary_off">Οι κάρτες άλμπουμ εμφανίζονται στα αποτελέσματα αναζήτησης</string>
     <string name="revanced_adremover_album_card_in_search_summary_on">Οι κάρτες άλμπουμ είναι κρυμμένες από τα αποτελέσματα αναζήτησης</string>
     <string name="revanced_adremover_album_card_in_search_title">Απόκρυψη καρτών άλμπουμ</string>
-    <string name="revanced_adremover_breaking_news_shelf_summary_off">Η ενότητα έκτακτων ειδήσεων εμφανίζεται</string>
-    <string name="revanced_adremover_breaking_news_shelf_summary_on">Η ενότητα των έκτακτων ειδήσεων είναι κρυμμένη</string>
     <string name="revanced_adremover_breaking_news_shelf_title">Απόκρυψη ενότητας έκτακτων ειδήσεων</string>
     <string name="revanced_adremover_browse_store_button_summary_off">Το κουμπί περιήγησης στο κατάστημα εμφανίζεται</string>
     <string name="revanced_adremover_browse_store_button_summary_on">Το κουμπί περιήγησης στο κατάστημα είναι κρυμμένο</string>
@@ -420,9 +418,6 @@
     <string name="revanced_hide_startup_shorts_player_summary_off">Το shorts player εμφανίζεται κατά την εκκίνηση της εφαρμογής</string>
     <string name="revanced_hide_startup_shorts_player_summary_on">Το shorts player είναι κρυμμένο κατά την εκκίνηση της εφαρμογής</string>
     <string name="revanced_hide_startup_shorts_player_title">Απόκρυψη του shorts player κατά την εκκίνηση της εφαρμογής</string>
-    <string name="revanced_hide_stories_shelf_summary_off">Η ενότητα ιστοριών εμφανίζεται</string>
-    <string name="revanced_hide_stories_shelf_summary_on">Η ενότητα ιστοριών είναι κρυμμένη</string>
-    <string name="revanced_hide_stories_shelf_title">Απόκρυψη ενότητας ιστοριών (stories)</string>
     <string name="revanced_hide_suggested_actions_summary_off">Οι προτεινόμενες ενέργειες εμφανίζονται</string>
     <string name="revanced_hide_suggested_actions_summary_on">Οι προτεινόμενες ενέργειες είναι κρυμμένες</string>
     <string name="revanced_hide_suggested_actions_title">Απόκρυψη προτεινόμενων ενεργειών</string>
