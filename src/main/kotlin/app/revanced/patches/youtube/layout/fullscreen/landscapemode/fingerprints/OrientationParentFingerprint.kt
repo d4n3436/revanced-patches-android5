@@ -3,6 +3,6 @@ package app.revanced.patches.youtube.layout.fullscreen.landscapemode.fingerprint
 import app.revanced.patcher.fingerprint.method.impl.MethodFingerprint
 
 object OrientationParentFingerprint : MethodFingerprint (
-    returnType = "Z",
-    strings = listOf("NoClassDefFoundError thrown while verifying stack trace.")
+    returnType = "V",
+    customFingerprint = {methodDef, _ -> methodDef.name == "<init>" && methodDef.definingClass == "Lovi;"}
 )
