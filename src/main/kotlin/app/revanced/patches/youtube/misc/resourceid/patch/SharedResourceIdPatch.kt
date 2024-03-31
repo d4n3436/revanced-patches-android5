@@ -12,7 +12,6 @@ import app.revanced.shared.patches.mapping.ResourceMappingPatch
 @YouTubeCompatibility
 class SharedResourcdIdPatch : ResourcePatch {
     internal companion object {
-        var dislikeButtonId: Long = -1
         var infoCardAccessibilityTeaserVibrateDurationMsId: Long = -1
         var inVideoProgrammingOverlayId: Long = -1
         var playerHeadingViewContainerId: Long = -1
@@ -43,7 +42,6 @@ class SharedResourcdIdPatch : ResourcePatch {
             .resourceMappings
             .single { it.type == type && it.name == name }.id
 
-        dislikeButtonId = findSharedResourceId("id", "dislike_button")
         infoCardAccessibilityTeaserVibrateDurationMsId = findSharedResourceId("integer", "info_card_accessibility_teaser_vibrate_duration_ms")
         inVideoProgrammingOverlayId = findSharedResourceId("layout", "youtube_invideo_programming_overlay")
         playerHeadingViewContainerId = findSharedResourceId("layout", "player_heading_view_container")
