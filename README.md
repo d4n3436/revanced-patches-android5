@@ -5,7 +5,7 @@ Unofficial ReVanced Extended for YouTube 16.40.36. Based on [kitadai31's fork of
 ## How to patch
 
 - Prerequisites:
-    - [Vanced MicroG](https://github.com/TeamVanced/VancedMicroG/releases/tag/v0.2.22.212658-212658001) installed on your device
+    - [GmsCore](https://github.com/Revanced/GmsCore/releases/latest) installed on your device
     - [Patches from the Release section](https://github.com/d4n3436/revanced-patches-android5/releases)
     - [YouTube APK](https://www.apkmirror.com/apk/google-inc/youtube/youtube-16-40-36-release/youtube-16-40-36-android-apk-download/)
     - [revanced-integrations for Android 5](https://github.com/d4n3436/revanced-integrations/releases)
@@ -14,7 +14,7 @@ Unofficial ReVanced Extended for YouTube 16.40.36. Based on [kitadai31's fork of
 
 - Patch with the following command (file names changed for brevity):
 ```
-java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.161.3.jar -m revanced-integrations-0.97.0.apk
+java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.161.4.jar -m revanced-integrations-0.97.1.apk
 ```
 
 - Or use [auto-cli](https://github.com/taku-nm/auto-cli) for automated patching. The prerequisites are downloaded automatically.
@@ -77,7 +77,7 @@ java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.
 | `hide-video-ads` | Removes ads in the video player. | 16.40.36 |
 | `layout-switch` | Tricks the dpi to use some tablet/phone layouts. | 16.40.36 |
 | `materialyou` | Enables MaterialYou theme for Android 12+ | 16.40.36 |
-| `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with Vanced MicroG. | 16.40.36 |
+| `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with GmsCore. ("GmsCore" is new Vanced MicroG). | 16.40.36 |
 | `optimize-resource` | Removes duplicate resources and adds missing translation files from YouTube. | 16.40.36 |
 | `os-version-check` | Check the Android version and show a warning if the device is Android 6.0 or higher. | 16.40.36 |
 | `overlay-buttons` | Add overlay buttons for ReVanced Extended. | 16.40.36 |
@@ -86,7 +86,6 @@ java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.
 | `settings` | Applies mandatory patches to implement ReVanced settings into the application. | 16.40.36 |
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 16.40.36 |
 | `spoof-app-version` | Spoof the YouTube client version to enable the new layout or restore old layout. | 16.40.36 |
-| `spoof-player-parameters` | Spoofs player parameters to prevent the endless buffering issue. | 16.40.36 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 16.40.36 |
 | `switch-create-notification` | Switches the create button and notification button. | 16.40.36 |
 | `theme` | Applies a custom theme (default: amoled). | 16.40.36 |
