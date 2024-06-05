@@ -1,4 +1,4 @@
-package app.revanced.patches.youtube.misc.clientspoof.resource.patch
+package app.revanced.patches.youtube.misc.osversion
 
 import app.revanced.patcher.annotation.Description
 import app.revanced.patcher.annotation.Name
@@ -6,27 +6,24 @@ import app.revanced.patcher.data.ResourceContext
 import app.revanced.patcher.patch.ResourcePatch
 import app.revanced.patcher.patch.annotations.DependsOn
 import app.revanced.patcher.patch.annotations.Patch
-import app.revanced.patches.youtube.misc.clientspoof.bytecode.patch.ClientSpoofBytecodePatch
-import app.revanced.patches.youtube.misc.settings.resource.patch.SettingsPatch
 import app.revanced.shared.annotation.YouTubeCompatibility
 import app.revanced.shared.util.resources.ResourceHelper
 
 @Patch
-@Name("client-spoof")
-@Description("Spoofs the YouTube client to prevent playback issues.")
+@Name("check-android-version")
+@Description("If the device is Android 6.0 or higher, show a warning dialog.")
 @DependsOn(
     [
-        ClientSpoofBytecodePatch::class,
-        SettingsPatch::class
+        CheckAndroidVersionBytecodePatch::class,
+        SettingsPatch::class,
     ]
 )
 @YouTubeCompatibility
-class ClientSpoofPatch : ResourcePatch {
+class CheckAndroidVersionPatch : ResourcePatch {
     override fun execute(context: ResourceContext) {
-
         ResourceHelper.patchSuccess(
             context,
-            "client-spoof"
+            "os-version-check"
         )
     }
 }
