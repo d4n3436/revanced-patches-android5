@@ -613,14 +613,14 @@
     <string name="revanced_spoof_app_version_category">バージョン偽装</string>
     <string name="revanced_spoof_app_version_title">アプリのバージョンを偽装する</string>
     <string name="revanced_spoof_app_version_summary">"YouTubeクライアントのバージョンを騙すことで、古いUIや新しいUIに切り替えられます。
-空白 = 偽装しない
+空白 = バージョン17.33.42に強制的になりすます。
 「アプリのバージョンを偽装」の詳細情報をお読み下さい。"</string>
     <string name="revanced_spoof_app_version_info_title">「アプリのバージョンを偽装」の詳細情報</string>
-    <string name="revanced_spoof_app_version_info_summary">https://github.com/kitadai31/revanced-patches-android6-7/wiki/Spoof-app-version-information</string>
+    <string name="revanced_spoof_app_version_info_summary">https://github.com/d4n3436/revanced-patches-android5/wiki/Spoof-app-version-information</string>
     <string name="revanced_reboot_first_run">"初回起動時は、レイアウトを正常に読み込むために再起動してください。
 (サーバからレイアウトを取得するのを待つ必要があるので、10秒待ってから再起動ボタンを押してください。)"</string>
     <string name="revanced_newer_android_warning_body"><![CDATA[
-このYouTube ReVancedは<b> Android 6.0-7.1 用</b>ですが、お使いの端末は Android %1$s です。<br>
+このYouTube ReVancedは<b> Android 5 用</b>ですが、お使いの端末は Android %1$s です。<br>
 <b>あなたは間違ったReVancedをインストールしているようです。</b><br>
 <br>
 「OK」をタップするとアプリを終了します。<br>

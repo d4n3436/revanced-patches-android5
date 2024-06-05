@@ -586,14 +586,14 @@
     <string name="revanced_spoof_app_version_category">Підміна версії</string>
     <string name="revanced_spoof_app_version_title">Підміна версії застосунку</string>
     <string name="revanced_spoof_app_version_summary">"Підміняє версію клієнта YouTube, щоб увімкнути новий інтерфейс або відновити старий.
-Порожньо = Немає підміни
+Порожньо = Примусова підміна на версію 17.33.42
 Будь ласка, прочитайте \"Більше інформації про \"Підміну версії застосунку\"\""</string>
     <string name="revanced_spoof_app_version_info_title">Більше інформації про \"Підміну версії застосунку\"</string>
-    <string name="revanced_spoof_app_version_info_summary">https://github.com/kitadai31/revanced-patches-android6-7/wiki/Spoof-app-version-information</string>
+    <string name="revanced_spoof_app_version_info_summary">https://github.com/d4n3436/revanced-patches-android5/wiki/Spoof-app-version-information</string>
     <string name="revanced_reboot_first_run">"Перезапустіть, щоб нормально завантажити макет під час першого запуску.
 (Будь ласка, зачекайте 5-10 секунд перед перезапуском, щоб отримати макети з сервера.)"</string>
     <string name="revanced_newer_android_warning_body"><![CDATA[
-Це YouTube ReVanced для <b>Android 6.0-7.1</b>, але цей пристрій має Android %1$s.<br>
+Це YouTube ReVanced для <b>Android 5</b>, але цей пристрій має Android %1$s.<br>
 <b>Можливо, ви встановили невірну версію ReVanced.</b><br>
 <br>
 Натисніть \"OK\", щоб вийти із застосунку.<br>
