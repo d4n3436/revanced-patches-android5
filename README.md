@@ -14,7 +14,7 @@ Unofficial ReVanced Extended for YouTube 16.40.36. Based on [kitadai31's fork of
 
 - Patch with the following command (file names changed for brevity):
 ```
-java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.161.4.jar -m revanced-integrations-0.97.1.apk
+java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.40.36.apk -b revanced-patches-2.161.5.jar -m revanced-integrations-0.97.2.apk
 ```
 
 - Or use [auto-cli](https://github.com/taku-nm/auto-cli) for automated patching. The prerequisites are downloaded automatically.
@@ -27,7 +27,7 @@ java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.
 
 | 💊 Patch | 📜 Description | 🏹 Target Version |
 |:--------:|:--------------:|:-----------------:|
-| `client-spoof` | Spoofs the YouTube client to prevent playback issues. | 16.40.36 |
+| `check-android-version` | If the device is Android 6.0 or higher, show a warning dialog. | 16.40.36 |
 | `custom-branding-icon-afn-blue` | Changes the YouTube launcher icon (Afn / Blue). | 16.40.36 |
 | `custom-branding-icon-afn-red` | Changes the YouTube launcher icon (Afn / Red). | 16.40.36 |
 | `custom-branding-icon-revancify` | Changes the YouTube launcher icon (Revancify). | 16.40.36 |
@@ -79,13 +79,13 @@ java -jar revanced-cli.jar patch YouTube_16.40.36.apk -p -o YouTube_ReVanced_16.
 | `materialyou` | Enables MaterialYou theme for Android 12+ | 16.40.36 |
 | `microg-support` | Allows YouTube ReVanced to run without root and under a different package name with GmsCore. ("GmsCore" is new Vanced MicroG). | 16.40.36 |
 | `optimize-resource` | Removes duplicate resources and adds missing translation files from YouTube. | 16.40.36 |
-| `os-version-check` | Check the Android version and show a warning if the device is Android 6.0 or higher. | 16.40.36 |
 | `overlay-buttons` | Add overlay buttons for ReVanced Extended. | 16.40.36 |
 | `patch-options` | Create an options.toml file. | 16.40.36 |
 | `return-youtube-dislike` | Shows the dislike count of videos using the Return YouTube Dislike API. | 16.40.36 |
 | `settings` | Applies mandatory patches to implement ReVanced settings into the application. | 16.40.36 |
 | `sponsorblock` | Integrates SponsorBlock which allows skipping video segments such as sponsored content. | 16.40.36 |
 | `spoof-app-version` | Spoof the YouTube client version to enable the new layout or restore old layout. | 16.40.36 |
+| `spoof-client` | Adds options to spoofs the client to allow video playback. | 16.40.36 |
 | `swipe-controls` | Adds volume and brightness swipe controls. | 16.40.36 |
 | `switch-create-notification` | Switches the create button and notification button. | 16.40.36 |
 | `theme` | Applies a custom theme (default: amoled). | 16.40.36 |
