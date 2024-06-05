@@ -60,7 +60,7 @@ class SpoofClientBytecodePatch : BytecodePatch(
 
         val INTEGRATIONS_CLASS_DESCRIPTOR = "$MISC_PATH/SpoofClientPatch;"
 //        val CLIENT_INFO_CLASS_DESCRIPTOR = "Lcom/google/protos/youtube/api/innertube/InnertubeContext\$ClientInfo;"
-        val CLIENT_INFO_CLASS_DESCRIPTOR = "Lajnp;"  // 17.34.36 only
+        val CLIENT_INFO_CLASS_DESCRIPTOR = "Larua;"  // 16.40.36 only
 
         // region Block /initplayback requests to fall back to /get_watch requests.
 
@@ -236,7 +236,7 @@ class SpoofClientBytecodePatch : BytecodePatch(
         PlayerGestureConfigSyntheticFingerprint.resultOrThrow().let {
             val endIndex = it.scanResult.patternScanResult!!.endIndex
             val downAndOutLandscapeAllowedIndex = endIndex - 3
-            val downAndOutPortraitAllowedIndex = endIndex - 9
+            val downAndOutPortraitAllowedIndex = endIndex - 8
 
             arrayOf(
                 downAndOutLandscapeAllowedIndex,

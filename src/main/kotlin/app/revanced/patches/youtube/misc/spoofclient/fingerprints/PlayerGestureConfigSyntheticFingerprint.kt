@@ -20,13 +20,12 @@ internal object PlayerGestureConfigSyntheticFingerprint : MethodFingerprint(
         Opcode.IF_EQZ,
         Opcode.IF_EQZ,
         // Opcode.IGET_OBJECT,      // doesn't exist in 17.34.36
-        Opcode.INVOKE_INTERFACE,
+        Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_VIRTUAL,      // playerGestureConfig.downAndOutLandscapeAllowed
         Opcode.MOVE_RESULT,
-        Opcode.CHECK_CAST,
         Opcode.IPUT_BOOLEAN,
-        Opcode.INVOKE_INTERFACE,
+        Opcode.INVOKE_VIRTUAL,
         Opcode.MOVE_RESULT_OBJECT,
         Opcode.INVOKE_VIRTUAL,      // playerGestureConfig.downAndOutPortraitAllowed
         Opcode.MOVE_RESULT,
@@ -43,7 +42,7 @@ internal object PlayerGestureConfigSyntheticFingerprint : MethodFingerprint(
             }
 
         // This method is always called "a" because this kind of class always has a single method.
-        methodDef.name == "a" && classDef.methods.count() == 19 && // 18 constructor + 1 method
+        methodDef.name == "a" && classDef.methods.count() == 2 && // 1 constructor + 1 method
                 indexOfDownAndOutAllowedInstruction(methodDef) > 0
     },
 )
