@@ -6,7 +6,7 @@ Unofficial ReVanced Extended for YouTube 16.40.36. Based on [kitadai31's fork of
 
 - Prerequisites:
     - [GmsCore](https://github.com/Revanced/GmsCore/releases/latest) installed on your device
-      - [Optimized version by WSTxda](https://github.com/WSTxda/MicroG-RE/releases/latest)
+      - [Optimized version by YT-Advanced](https://github.com/YT-Advanced/GmsCore/releases/latest)
     - [Patches from the Release section](https://github.com/d4n3436/revanced-patches-android5/releases)
     - [YouTube APK](https://www.apkmirror.com/apk/google-inc/youtube/youtube-16-40-36-release/youtube-16-40-36-android-apk-download/)
     - [revanced-integrations for Android 5](https://github.com/d4n3436/revanced-integrations/releases)
